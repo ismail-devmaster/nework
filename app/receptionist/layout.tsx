@@ -18,7 +18,7 @@ const ReceptionistDashboardComponent = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [activeContent, setActiveContent] = React.useState("appointments");
+  const [activeContent, setActiveContent] = React.useState("");
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
   const [showToggle, setShowToggle] = React.useState(true);
 
@@ -51,7 +51,7 @@ const ReceptionistDashboardComponent = ({
       >
         <div className="flex items-center justify-between h-20 bg-gray-900 px-4">
           {isSidebarOpen && (
-            <Link href="/receptionist">
+            <Link href="/receptionist" onClick={() => setActiveContent("")}>
               <h2 className="text-2xl font-semibold text-white">
                 RamdaniClinic
               </h2>

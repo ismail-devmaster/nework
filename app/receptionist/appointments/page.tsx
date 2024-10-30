@@ -166,7 +166,8 @@ const ReceptionistAppointments = () => {
         .includes(searchTerm.toLowerCase()) ||
       appointment.type.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
+  const today = new Date();
+  const formattedToday = today.toISOString().split("T")[0];
   return (
     <Card className="mb-8">
       <CardHeader>
@@ -251,6 +252,7 @@ const ReceptionistAppointments = () => {
                       type="date"
                       className="col-span-3"
                       required
+                      min={formattedToday}
                     />
                   </div>
                   <div className="grid grid-cols-4 items-center gap-4">
