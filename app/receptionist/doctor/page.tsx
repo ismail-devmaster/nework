@@ -117,7 +117,7 @@ const ReceptionistDoctor = () => {
       <CardHeader>
         <CardTitle>Doctor Schedule Management</CardTitle>
         <CardDescription>
-          Adjust doctors' schedules and availability
+          Adjust doctors&apos; schedules and availability
         </CardDescription>
       </CardHeader>
       <CardContent>

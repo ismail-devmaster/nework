@@ -1,20 +1,5 @@
 "use client";
 import * as React from "react";
-import {
-  Bell,
-  Calendar,
-  Clock,
-  Layout,
-  MessageSquare,
-  Plus,
-  Search,
-  User,
-  Users,
-  Edit,
-  Trash2,
-  RefreshCcw,
-} from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -25,12 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Select,
@@ -39,7 +19,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator";
 import {
   Table,
   TableBody,
@@ -48,7 +27,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Dialog,
   DialogContent,
