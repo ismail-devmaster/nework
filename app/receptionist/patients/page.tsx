@@ -2,19 +2,12 @@
 
 import * as React from "react";
 import {
-  Bell,
-  Calendar,
-  Clock,
-  Layout,
-  MessageSquare,
   Plus,
   Search,
-  User,
-  Users,
+  
   Edit,
   Trash2,
 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -25,13 +18,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Select,
   SelectContent,
@@ -164,7 +150,7 @@ const ReceptionistPatient = () => {
               <DialogHeader>
                 <DialogTitle>Add New Patient</DialogTitle>
                 <DialogDescription>
-                  Enter the new patient's information below.
+                  Enter the new patient&apos;s information below.
                 </DialogDescription>
               </DialogHeader>
               <form
