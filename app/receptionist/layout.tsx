@@ -9,7 +9,6 @@ import {
   User,
   Users,
   Home,
-
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -36,9 +35,7 @@ const ReceptionistDashboardComponent = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
 
   const [patientQueue, setPatientQueue] = React.useState([
     { id: 1, name: "John Doe", status: "Waiting", timeLeft: "10 mins" },
@@ -47,23 +44,17 @@ const ReceptionistDashboardComponent = ({
   ]);
 
   return (
- 
     <div className="flex h-screen overflow-hidden">
-        
-
       {/* Sidebar */}
       <aside
         className={`${
           isSidebarOpen ? "w-64" : "w-20"
         } overflow-y-auto bg-gray-800 transition-all duration-300 ease-in-out flex flex-col`}
       >
-       
         <div className="flex items-center justify-between h-20 bg-gray-900 px-4 ">
           {isSidebarOpen && (
             <Link href="/receptionist" onClick={() => setActiveContent("")}>
-            
-            <h2 className="text-2xl font-semibold text-white">     
-          
+              <h2 className="text-2xl font-semibold text-white">
                 RamdaniClinic
               </h2>
             </Link>
@@ -83,11 +74,6 @@ const ReceptionistDashboardComponent = ({
           </Button>
         </div>
         <nav className="mt-5 flex-grow">
-        <Link href="/">
-          <div className="flex h-16 items-center px-4">
-          <Home className=" h-6 w-6 text-white" /><span className="text-white mx-3">Home</span>
-        </div>
-          </Link>  
           <Link
             // className="flex items-center px-6 py-2 mt-4"
             className={`flex items-center px-6 py-2 mt-4 ${
@@ -101,7 +87,7 @@ const ReceptionistDashboardComponent = ({
             <Calendar className="w-5 h-5" />
             {isSidebarOpen && <span className="mx-3">Appointments</span>}
           </Link>
-          
+
           <Link
             className={`flex items-center px-6 py-2 mt-4 ${
               activeContent === "lobby"
