@@ -36,7 +36,10 @@ const ReceptionistDashboardComponent = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+
   const [patientQueue, setPatientQueue] = React.useState([
     { id: 1, name: "John Doe", status: "Waiting", timeLeft: "10 mins" },
     { id: 2, name: "Jane Smith", status: "In Progress", timeLeft: "15 mins" },
