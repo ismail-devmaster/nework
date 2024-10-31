@@ -33,7 +33,7 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Bell, Calendar as CalendarIcon, Clock, User } from "lucide-react";
 import { format } from "date-fns";
-import { toast } from "@/components/ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import {
   Dialog,
   DialogContent,
@@ -56,6 +56,7 @@ import {
 } from "@/components/ui/alert-dialog";
 
 const AppointmentsPageComponent = () => {
+  const { toast } = useToast();
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [selectedDoctor, setSelectedDoctor] = useState<string | null>(null);
@@ -159,15 +160,6 @@ const AppointmentsPageComponent = () => {
   ];
 
   const handleConfirmAppointment = () => {
-    if (!date || !selectedTime || !selectedDoctor || !selectedReason) {
-      toast({
-        title: "Error",
-        description: "Please fill in all required fields.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     const newAppointment = {
       id: Date.now(),
       date: format(date, "MMMM d, yyyy"),
@@ -268,6 +260,10 @@ const AppointmentsPageComponent = () => {
   };
 
   const today = new Date();
+
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const openDialog = () => setIsDialogOpen(true);
+  const closeDialog = () => setIsDialogOpen(false);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -473,9 +469,52 @@ const AppointmentsPageComponent = () => {
                   >
                     Cancel
                   </Button>
-                  <Button onClick={handleConfirmAppointment}>
+                  {/* <Button onClick={handleConfirmAppointment}> */}
+                  <Button
+                    onClick={() => {
+                      if (
+                        date &&
+                        selectedTime &&
+                        selectedDoctor &&
+                        selectedReason
+                      ) {
+                        openDialog();
+                      } else {
+                        toast({
+                          title: "Error",
+                          description: "Please fill in all required fields.",
+                          variant: "destructive",
+                        });
+                      }
+                    }}
+                  >
                     Confirm Appointment
                   </Button>
+                  <AlertDialog
+                    open={isDialogOpen}
+                    onOpenChange={setIsDialogOpen}
+                  >
+                    <AlertDialogContent>
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>
+                          Are you sure you want to book this appointment?
+                        </AlertDialogTitle>
+                        <AlertDialogDescription>
+                          This action cannot be undone. This will permanently
+                          delete your account and remove your data from our
+                          servers.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel onClick={closeDialog}>
+                          Cancel
+                        </AlertDialogCancel>
+                        <AlertDialogAction onClick={handleConfirmAppointment}>
+                          Continue
+                        </AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
                 </CardFooter>
               </Card>
             </div>
