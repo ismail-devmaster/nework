@@ -1,8 +1,14 @@
-
-
-import React from 'react';
+import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, Users, UserRound, Activity, Clock, Home } from "lucide-react";
+import {
+  Calendar,
+  Users,
+  UserRound,
+  Activity,
+  Clock,
+  Home,
+} from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   const navigationCards = [
@@ -11,29 +17,29 @@ export default function HomePage() {
       description: "Manage patient appointments and schedules",
       icon: Calendar,
       href: "/receptionist/appointments",
-      color: "text-blue-600"
+      color: "text-blue-600",
     },
     {
       title: "Doctor",
       description: "View and manage doctor schedules",
       icon: UserRound,
       href: "/receptionist/doctor",
-      color: "text-green-600"
+      color: "text-green-600",
     },
     {
       title: "Lobby",
       description: "Monitor waiting room and patient status",
       icon: Clock,
       href: "/receptionist/lobby",
-      color: "text-orange-600"
+      color: "text-orange-600",
     },
     {
       title: "Patients",
       description: "Access patient records and information",
       icon: Users,
       href: "/receptionist/patients",
-      color: "text-purple-600"
-    }
+      color: "text-purple-600",
+    },
   ];
 
   return (
@@ -55,7 +61,8 @@ export default function HomePage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              Access all your dental practice management tools from one central dashboard.
+              Access all your dental practice management tools from one central
+              dashboard.
             </p>
           </CardContent>
         </Card>
@@ -63,11 +70,7 @@ export default function HomePage() {
         {/* Navigation Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {navigationCards.map((item) => (
-            <a 
-              href={item.href} 
-              key={item.title}
-              className="no-underline"
-            >
+            <Link href={item.href} key={item.title} className="no-underline">
               <Card className="hover:bg-accent transition-colors cursor-pointer h-full">
                 <CardHeader>
                   <div className="flex items-center gap-2">
@@ -81,7 +84,7 @@ export default function HomePage() {
                   </p>
                 </CardContent>
               </Card>
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -96,9 +99,7 @@ export default function HomePage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">12</div>
-              <p className="text-xs text-muted-foreground">
-                +2 from yesterday
-              </p>
+              <p className="text-xs text-muted-foreground">+2 from yesterday</p>
             </CardContent>
           </Card>
           <Card>
@@ -124,14 +125,11 @@ export default function HomePage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">3</div>
-              <p className="text-xs text-muted-foreground">
-                Out of 5 total
-              </p>
+              <p className="text-xs text-muted-foreground">Out of 5 total</p>
             </CardContent>
           </Card>
         </div>
       </main>
     </div>
-
   );
 }
