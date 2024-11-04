@@ -1535,6 +1535,11 @@ body {
   padding-bottom: 2rem;
 }
 
+.py-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .pb-2 {
   padding-bottom: .5rem;
 }

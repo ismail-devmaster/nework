@@ -9,5 +9,8 @@
   "/receptionist/lobby/page": "app/receptionist/lobby/page.js",
   "/receptionist/patients/page": "app/receptionist/patients/page.js",
   "/receptionist/doctor/page": "app/receptionist/doctor/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/patient/payments/page": "app/patient/payments/page.js",
+  "/patient/queue/page": "app/patient/queue/page.js",
+  "/patient/appointments/page": "app/patient/appointments/page.js"
 }

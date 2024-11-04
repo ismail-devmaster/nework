@@ -14,6 +14,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Tooltip,
@@ -29,24 +30,19 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
-const PatientDashboardComponent = () => {
+const PatientDashboardComponent = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [darkMode, setDarkMode] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [selectedNavItem, setSelectedNavItem] = useState("Dashboard");
-
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     document.documentElement.classList.toggle("dark");
   };
-
-  const navItems = [
-    { name: "Dashboard", icon: Home },
-    { name: "My Profile", icon: User },
-    { name: "Appointments", icon: Calendar },
-    { name: "Medical Records", icon: FileText },
-    { name: "Payments", icon: CreditCard },
-  ];
 
   return (
     <div
@@ -56,12 +52,12 @@ const PatientDashboardComponent = () => {
     >
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 left-0 z-40 w-60 h-screen transition-transform ${
+          sidebarOpen ? "translate-x-0 w-60" : "-translate-x-full"
         }`}
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
-          <div className="flex items-center mb-5">
+          <Link href={"/patient"} className="flex items-center mb-5">
             <Avatar className="h-10 w-10">
               <AvatarImage
                 src="/placeholder.svg?height=40&width=40"
@@ -72,20 +68,44 @@ const PatientDashboardComponent = () => {
             <span className="ml-3 text-xl font-semibold text-gray-800 dark:text-white">
               John Doe
             </span>
-          </div>
+          </Link>
           <ul className="space-y-2">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                <Button
-                  variant={selectedNavItem === item.name ? "default" : "ghost"}
-                  className="w-full justify-start"
-                  onClick={() => setSelectedNavItem(item.name)}
-                >
-                  <item.icon className="mr-2 h-4 w-4" />
-                  {item.name}
-                </Button>
-              </li>
-            ))}
+            <li>
+              <Link
+                className="flex items-center px-4 py-2 mt-4"
+                href={"/patient/profile"}
+              >
+                <User className="mr-2 h-4 w-4" />
+                My Profile
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="flex items-center px-4 py-2 mt-4"
+                href={"/patient/appointments"}
+              >
+                <Calendar className="mr-2 h-4 w-4" />
+                Appointments
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="flex items-center px-4 py-2 mt-4"
+                href={"/patient/queue"}
+              >
+                <FileText className="mr-2 h-4 w-4" />
+                Queque Status
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="flex items-center px-4 py-2 mt-4"
+                href={"/patient/payments"}
+              >
+                <CreditCard className="mr-2 h-4 w-4" />
+                Payments
+              </Link>
+            </li>
           </ul>
         </div>
       </aside>
@@ -99,13 +119,13 @@ const PatientDashboardComponent = () => {
         {/* Header */}
         <header className="bg-white dark:bg-gray-800 shadow-md rounded-lg mb-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <Button
+            {/* <Button
               variant="ghost"
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className="lg:hidden"
             >
               <Menu className="h-6 w-6" />
-            </Button>
+            </Button> */}
             <div className="flex items-center space-x-4">
               <TooltipProvider>
                 <Tooltip>
@@ -155,36 +175,8 @@ const PatientDashboardComponent = () => {
           </div>
         </header>
 
-        {/* Breadcrumbs */}
-        <nav
-          className="text-gray-500 dark:text-gray-400 mb-4"
-          aria-label="Breadcrumb"
-        >
-          <ol className="list-none p-0 inline-flex">
-            <li className="flex items-center">
-              <a href="#" className="hover:text-gray-800 dark:hover:text-white">
-                Home
-              </a>
-              <ChevronRight className="h-4 w-4 mx-2" />
-            </li>
-            <li className="flex items-center">
-              <a href="#" className="hover:text-gray-800 dark:hover:text-white">
-                {selectedNavItem}
-              </a>
-            </li>
-          </ol>
-        </nav>
-
-        {/* Main Content Area */}
-        <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
-          <h1 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">
-            {selectedNavItem}
-          </h1>
-          <p className="text-gray-600 dark:text-gray-300">
-            This is the content for the {selectedNavItem} section. You can add
-            more specific content here based on the selected navigation item.
-          </p>
-        </div>
+        {/* Dynamic Content */}
+        <div className="container px-6 py-8 mx-auto">{children}</div>
       </div>
     </div>
   );
