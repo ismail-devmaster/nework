@@ -2,5 +2,6 @@
   "/page": "app/page.js",
   "/patient/page": "app/patient/page.js",
   "/doctor/page": "app/doctor/page.js",
-  "/_not-found/page": "app/_not-found/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }
