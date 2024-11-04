@@ -221,181 +221,191 @@ const ReceptionistLobby = () => {
   };
 
   return (
-    <Card className="mb-8">
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <div>
-          <CardTitle>Lobby Management</CardTitle>
-          <CardDescription>
-            Track real-time patient flow in the clinic
-          </CardDescription>
-        </div>
-        <div className="flex space-x-2">
-          <Dialog open={isAddingPatient} onOpenChange={setIsAddingPatient}>
-            <DialogTrigger asChild>
-              <Button variant="outline">
-                <Plus className="mr-2 h-4 w-4" /> Add Patient
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Add New Patient</DialogTitle>
-                <DialogDescription>
-                  Select a patient and set their estimated wait time.
-                </DialogDescription>
-              </DialogHeader>
-              <Select value={newPatientName} onValueChange={setNewPatientName}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select a patient" />
-                </SelectTrigger>
-                <SelectContent>
-                  {predefinedPatients.map((patient) => (
-                    <SelectItem key={patient} value={patient}>
-                      {patient}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <div className="flex items-center space-x-2">
-                <Label htmlFor="estimatedWaitTime">
-                  Estimated Wait Time (minutes):
-                </Label>
-                <Input
-                  id="estimatedWaitTime"
-                  type="number"
-                  value={newPatientEstimatedWaitTime}
-                  onChange={(e) =>
-                    setNewPatientEstimatedWaitTime(parseInt(e.target.value, 10))
-                  }
-                  className="w-20"
-                />
-              </div>
-              <DialogFooter>
-                <Button onClick={addNewPatient}>Add Patient</Button>
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => toast({ title: "Queue Refreshed" })}
-          >
-            <RefreshCcw className="h-4 w-4" />
-          </Button>
-        </div>
-      </CardHeader>
-      <CardContent>
-        <ScrollArea className="h-[400px]">
-          <DragDropContext onDragEnd={onDragEnd}>
-            <Droppable droppableId="patientQueue">
-              {(provided) => (
-                <Table {...provided.droppableProps} ref={provided.innerRef}>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Patient Name</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>Estimated Wait Time</TableHead>
-                      <TableHead>Arrival Time</TableHead>
-                      <TableHead>Time Waited</TableHead>
-                      <TableHead>Estimated Time to Doctor</TableHead>
-                      <TableHead>Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {sortedPatientQueue.map((patient, index) => (
-                      <Draggable
-                        key={patient.id}
-                        draggableId={patient.id}
-                        index={index}
-                      >
-                        {(provided, snapshot) => (
-                          <TableRow
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            style={{
-                              ...provided.draggableProps.style,
-                              background: snapshot.isDragging
-                                ? "rgba(0, 0, 0, 0.1)"
-                                : "transparent",
-                            }}
-                          >
-                            <TableCell>{patient.name}</TableCell>
-                            <TableCell>
-                              <Badge
-                                variant={
-                                  patient.status === "In Progress"
-                                    ? "default"
-                                    : "secondary"
-                                }
-                              >
-                                {patient.status}
-                              </Badge>
-                            </TableCell>
-                            <TableCell>
-                              <Input
-                                value={patient.estimatedWaitTime}
-                                onChange={(e) =>
-                                  updateEstimatedWaitTime(
-                                    patient.id,
-                                    e.target.value
-                                  )
-                                }
-                                className="w-24"
-                              />
-                              {" mins"}
-                            </TableCell>
-                            <TableCell>{patient.arrivalTime}</TableCell>
-                            <TableCell>
-                              {calculateTimeDifference(patient.arrivalTime)}{" "}
-                              mins
-                            </TableCell>
-                            <TableCell>
-                              {calculateEstimatedTimeToDoctor(index)} mins
-                            </TableCell>
-                            <TableCell>
-                              <div className="flex space-x-2">
-                                <Select
-                                  onValueChange={(value) =>
-                                    updatePatientStatus(patient.id, value)
+    <div className="w-full max-w-6xl mx-auto">
+      <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center dark:text-white">
+        Lobby Management
+      </h1>
+      <Card className="mb-8">
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <div>
+            <CardTitle>Lobby Management</CardTitle>
+            <CardDescription>
+              Track real-time patient flow in the clinic
+            </CardDescription>
+          </div>
+          <div className="flex space-x-2">
+            <Dialog open={isAddingPatient} onOpenChange={setIsAddingPatient}>
+              <DialogTrigger asChild>
+                <Button variant="outline">
+                  <Plus className="mr-2 h-4 w-4" /> Add Patient
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Add New Patient</DialogTitle>
+                  <DialogDescription>
+                    Select a patient and set their estimated wait time.
+                  </DialogDescription>
+                </DialogHeader>
+                <Select
+                  value={newPatientName}
+                  onValueChange={setNewPatientName}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a patient" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {predefinedPatients.map((patient) => (
+                      <SelectItem key={patient} value={patient}>
+                        {patient}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <div className="flex items-center space-x-2">
+                  <Label htmlFor="estimatedWaitTime">
+                    Estimated Wait Time (minutes):
+                  </Label>
+                  <Input
+                    id="estimatedWaitTime"
+                    type="number"
+                    value={newPatientEstimatedWaitTime}
+                    onChange={(e) =>
+                      setNewPatientEstimatedWaitTime(
+                        parseInt(e.target.value, 10)
+                      )
+                    }
+                    className="w-20"
+                  />
+                </div>
+                <DialogFooter>
+                  <Button onClick={addNewPatient}>Add Patient</Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => toast({ title: "Queue Refreshed" })}
+            >
+              <RefreshCcw className="h-4 w-4" />
+            </Button>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <ScrollArea className="h-[400px]">
+            <DragDropContext onDragEnd={onDragEnd}>
+              <Droppable droppableId="patientQueue">
+                {(provided) => (
+                  <Table {...provided.droppableProps} ref={provided.innerRef}>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Patient Name</TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead>Estimated Wait Time</TableHead>
+                        <TableHead>Arrival Time</TableHead>
+                        <TableHead>Time Waited</TableHead>
+                        <TableHead>Estimated Time to Doctor</TableHead>
+                        <TableHead>Actions</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {sortedPatientQueue.map((patient, index) => (
+                        <Draggable
+                          key={patient.id}
+                          draggableId={patient.id}
+                          index={index}
+                        >
+                          {(provided, snapshot) => (
+                            <TableRow
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              style={{
+                                ...provided.draggableProps.style,
+                                background: snapshot.isDragging
+                                  ? "rgba(0, 0, 0, 0.1)"
+                                  : "transparent",
+                              }}
+                            >
+                              <TableCell>{patient.name}</TableCell>
+                              <TableCell>
+                                <Badge
+                                  variant={
+                                    patient.status === "In Progress"
+                                      ? "default"
+                                      : "secondary"
                                   }
                                 >
-                                  <SelectTrigger className="w-[120px]">
-                                    <SelectValue placeholder="Update Status" />
-                                  </SelectTrigger>
-                                  <SelectContent>
-                                    <SelectItem value="Waiting">
-                                      Waiting
-                                    </SelectItem>
-                                    <SelectItem value="In Progress">
-                                      In Progress
-                                    </SelectItem>
-                                    <SelectItem value="Completed">
-                                      Completed
-                                    </SelectItem>
-                                  </SelectContent>
-                                </Select>
-                                <Button
-                                  variant="outline"
-                                  size="sm"
-                                  onClick={() => notifyPatient(patient.id)}
-                                >
-                                  Notify
-                                </Button>
-                              </div>
-                            </TableCell>
-                          </TableRow>
-                        )}
-                      </Draggable>
-                    ))}
-                    {provided.placeholder}
-                  </TableBody>
-                </Table>
-              )}
-            </Droppable>
-          </DragDropContext>
-        </ScrollArea>
-      </CardContent>
-    </Card>
+                                  {patient.status}
+                                </Badge>
+                              </TableCell>
+                              <TableCell>
+                                <Input
+                                  value={patient.estimatedWaitTime}
+                                  onChange={(e) =>
+                                    updateEstimatedWaitTime(
+                                      patient.id,
+                                      e.target.value
+                                    )
+                                  }
+                                  className="w-24"
+                                />
+                                {" mins"}
+                              </TableCell>
+                              <TableCell>{patient.arrivalTime}</TableCell>
+                              <TableCell>
+                                {calculateTimeDifference(patient.arrivalTime)}{" "}
+                                mins
+                              </TableCell>
+                              <TableCell>
+                                {calculateEstimatedTimeToDoctor(index)} mins
+                              </TableCell>
+                              <TableCell>
+                                <div className="flex space-x-2">
+                                  <Select
+                                    onValueChange={(value) =>
+                                      updatePatientStatus(patient.id, value)
+                                    }
+                                  >
+                                    <SelectTrigger className="w-[120px]">
+                                      <SelectValue placeholder="Update Status" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      <SelectItem value="Waiting">
+                                        Waiting
+                                      </SelectItem>
+                                      <SelectItem value="In Progress">
+                                        In Progress
+                                      </SelectItem>
+                                      <SelectItem value="Completed">
+                                        Completed
+                                      </SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                  <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={() => notifyPatient(patient.id)}
+                                  >
+                                    Notify
+                                  </Button>
+                                </div>
+                              </TableCell>
+                            </TableRow>
+                          )}
+                        </Draggable>
+                      ))}
+                      {provided.placeholder}
+                    </TableBody>
+                  </Table>
+                )}
+              </Droppable>
+            </DragDropContext>
+          </ScrollArea>
+        </CardContent>
+      </Card>
+    </div>
   );
 };
 export default ReceptionistLobby;

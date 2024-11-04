@@ -6,12 +6,10 @@ import {
   Calendar,
   CreditCard,
   FileText,
-  Home,
   Menu,
   Moon,
   Sun,
   User,
-  ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

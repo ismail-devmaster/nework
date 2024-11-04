@@ -1,12 +1,6 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Calendar,
-  Users,
-  UserRound,
-  Activity,
-  Clock,
-} from "lucide-react";
+import { Calendar, Users, UserRound, Activity, Clock } from "lucide-react";
 import Link from "next/link";
 
 const page = () => {
@@ -42,7 +36,10 @@ const page = () => {
   ];
 
   return (
-    <>
+    <div className="w-full max-w-6xl mx-auto">
+      <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center dark:text-white">
+        Dashboard
+      </h1>
       <Card className="mb-8">
         <CardHeader>
           <CardTitle>Welcome to Dental Center Management System</CardTitle>
@@ -116,7 +113,7 @@ const page = () => {
           </CardContent>
         </Card>
       </div>
-    </>
+    </div>
   );
 };
 export default page;
