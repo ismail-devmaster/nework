@@ -1,0 +1,13 @@
+{
+  "/page": "app/page.js",
+  "/doctor/page": "app/doctor/page.js",
+  "/patient/page": "app/patient/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/receptionist/page": "app/receptionist/page.js",
+  "/patient/profile/page": "app/patient/profile/page.js",
+  "/receptionist/appointments/page": "app/receptionist/appointments/page.js",
+  "/receptionist/lobby/page": "app/receptionist/lobby/page.js",
+  "/receptionist/patients/page": "app/receptionist/patients/page.js",
+  "/receptionist/doctor/page": "app/receptionist/doctor/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
+}

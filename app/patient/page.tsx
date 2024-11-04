@@ -82,7 +82,7 @@ const PatientDashboardComponent = () => {
     >
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${
+        className={`fixed top-0 left-0 z-40 w-60 h-screen transition-transform ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
