@@ -267,59 +267,6 @@ const AppointmentsPageComponent = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <header className="sticky top-0 z-10 bg-white dark:bg-gray-800 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <img
-                src="/placeholder.svg?height=40&width=40"
-                alt="Logo"
-                className="h-8 w-8 mr-3"
-              />
-              <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
-                HealthCare Pro
-              </h1>
-            </div>
-            <nav className="hidden md:flex space-x-4">
-              <a
-                href="#"
-                className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Dashboard
-              </a>
-              <a
-                href="#"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Appointments
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Medical Records
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Messages
-              </a>
-            </nav>
-            <div className="flex items-center">
-              <Switch id="dark-mode" className="mr-4" />
-              <Avatar>
-                <AvatarImage
-                  src="/placeholder.svg?height=32&width=32"
-                  alt="User"
-                />
-                <AvatarFallback>JD</AvatarFallback>
-              </Avatar>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
           Appointments
@@ -715,30 +662,6 @@ const AppointmentsPageComponent = () => {
           </TabsContent>
         </Tabs>
       </main>
-
-      <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="md:flex md:items-center md:justify-between">
-            <div className="flex justify-center space-x-6 md:order-2">
-              <a href="#" className="text-gray-400 hover:text-gray-500">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">
-                Contact Support
-              </a>
-            </div>
-            <div className="mt-8 md:mt-0 md:order-1">
-              <p className="text-center text-base text-gray-400">
-                &copy; {new Date().getFullYear()} HealthCare Pro. All rights
-                reserved.
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
 
       <Dialog
         open={isRescheduleDialogOpen}

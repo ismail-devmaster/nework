@@ -14,7 +14,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Tooltip,
@@ -30,49 +29,24 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import AppointmentsPageComponent from "./appointments/page";
-import MyProfilePageComponent from "./profile/page";
-import Payments from "./payments/page";
-import QueueStatus from "./queue/page";
 
 const PatientDashboardComponent = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [activeContent, setActiveContent] = useState("dashboard");
+  const [selectedNavItem, setSelectedNavItem] = useState("Dashboard");
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     document.documentElement.classList.toggle("dark");
   };
 
-  const renderContent = () => {
-    switch (activeContent) {
-      case "dashboard":
-        return (
-          <Card>
-            <CardHeader>
-              <CardTitle>Dashboard</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Welcome to your patient dashboard. Here you can view your health
-                summary and recent activities.
-              </p>
-            </CardContent>
-          </Card>
-        );
-      case "profile":
-        return <MyProfilePageComponent />;
-      case "appointments":
-        return <AppointmentsPageComponent />;
-      case "queue ":
-        return <QueueStatus />;
-      case "payments":
-        return <Payments />;
-      default:
-        return null;
-    }
-  };
+  const navItems = [
+    { name: "Dashboard", icon: Home },
+    { name: "My Profile", icon: User },
+    { name: "Appointments", icon: Calendar },
+    { name: "Medical Records", icon: FileText },
+    { name: "Payments", icon: CreditCard },
+  ];
 
   return (
     <div
@@ -100,56 +74,18 @@ const PatientDashboardComponent = () => {
             </span>
           </div>
           <ul className="space-y-2">
-            <li>
-              <Button
-                variant="ghost"
-                className="w-full justify-start"
-                onClick={() => setActiveContent("dashboard")}
-              >
-                <Home className="mr-2 h-4 w-4" />
-                Dashboard
-              </Button>
-            </li>
-            <li>
-              <Button
-                variant="ghost"
-                className="w-full justify-start"
-                onClick={() => setActiveContent("profile")}
-              >
-                <User className="mr-2 h-4 w-4" />
-                My Profile
-              </Button>
-            </li>
-            <li>
-              <Button
-                variant="ghost"
-                className="w-full justify-start"
-                onClick={() => setActiveContent("appointments")}
-              >
-                <Calendar className="mr-2 h-4 w-4" />
-                Appointments
-              </Button>
-            </li>
-            <li>
-              <Button
-                variant="ghost"
-                className="w-full justify-start"
-                onClick={() => setActiveContent("queue ")}
-              >
-                <FileText className="mr-2 h-4 w-4" />
-                Queue Status
-              </Button>
-            </li>
-            <li>
-              <Button
-                variant="ghost"
-                className="w-full justify-start"
-                onClick={() => setActiveContent("payments")}
-              >
-                <CreditCard className="mr-2 h-4 w-4" />
-                Payments
-              </Button>
-            </li>
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <Button
+                  variant={selectedNavItem === item.name ? "default" : "ghost"}
+                  className="w-full justify-start"
+                  onClick={() => setSelectedNavItem(item.name)}
+                >
+                  <item.icon className="mr-2 h-4 w-4" />
+                  {item.name}
+                </Button>
+              </li>
+            ))}
           </ul>
         </div>
       </aside>
@@ -233,14 +169,22 @@ const PatientDashboardComponent = () => {
             </li>
             <li className="flex items-center">
               <a href="#" className="hover:text-gray-800 dark:hover:text-white">
-                {activeContent.charAt(0).toUpperCase() + activeContent.slice(1)}
+                {selectedNavItem}
               </a>
             </li>
           </ol>
         </nav>
 
-        {/* Dynamic Content */}
-        {renderContent()}
+        {/* Main Content Area */}
+        <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
+          <h1 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">
+            {selectedNavItem}
+          </h1>
+          <p className="text-gray-600 dark:text-gray-300">
+            This is the content for the {selectedNavItem} section. You can add
+            more specific content here based on the selected navigation item.
+          </p>
+        </div>
       </div>
     </div>
   );
