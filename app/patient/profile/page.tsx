@@ -65,8 +65,8 @@ export default function MyProfilePage() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center">
+    <div className="w-full max-w-6xl mx-auto ">
+      <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center dark:text-white">
         My Health Profile
       </h1>
 

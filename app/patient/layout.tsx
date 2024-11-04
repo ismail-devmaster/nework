@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Bell,
   Calendar,
@@ -39,24 +39,35 @@ const PatientDashboardComponent = ({
 }) => {
   const [darkMode, setDarkMode] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-    document.documentElement.classList.toggle("dark");
   };
 
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   return (
-    <div
-      className={`min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300 ${
-        darkMode ? "dark" : ""
-      }`}
-    >
+    <div className={`flex h-screen overflow-hidden ${darkMode ? "dark" : ""}`}>
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 w-60 h-screen transition-transform ${
-          sidebarOpen ? "translate-x-0 w-60" : "-translate-x-full"
-        }`}
+        className={`${
+          sidebarOpen ? "w-64" : "w-20"
+        } overflow-y-auto bg-gray-800 transition-all duration-300 ease-in-out flex flex-col`}
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
+          <Button
+            variant="ghost"
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="mb-5"
+          >
+            <Menu className="h-6 w-6" />
+          </Button>
           <Link href={"/patient"} className="flex items-center mb-5">
             <Avatar className="h-10 w-10">
               <AvatarImage
@@ -65,9 +76,11 @@ const PatientDashboardComponent = ({
               />
               <AvatarFallback>JD</AvatarFallback>
             </Avatar>
-            <span className="ml-3 text-xl font-semibold text-gray-800 dark:text-white">
-              John Doe
-            </span>
+            {sidebarOpen && (
+              <span className="ml-3 text-xl font-semibold text-gray-800 dark:text-white">
+                John Doe
+              </span>
+            )}
           </Link>
           <ul className="space-y-2">
             <li>
@@ -76,7 +89,7 @@ const PatientDashboardComponent = ({
                 href={"/patient/profile"}
               >
                 <User className="mr-2 h-4 w-4" />
-                My Profile
+                {sidebarOpen && <span>My Profile</span>}
               </Link>
             </li>
             <li>
@@ -85,7 +98,7 @@ const PatientDashboardComponent = ({
                 href={"/patient/appointments"}
               >
                 <Calendar className="mr-2 h-4 w-4" />
-                Appointments
+                {sidebarOpen && <span>Appointments</span>}
               </Link>
             </li>
             <li>
@@ -94,7 +107,7 @@ const PatientDashboardComponent = ({
                 href={"/patient/queue"}
               >
                 <FileText className="mr-2 h-4 w-4" />
-                Queque Status
+                {sidebarOpen && <span>Queue Status</span>}
               </Link>
             </li>
             <li>
@@ -103,29 +116,16 @@ const PatientDashboardComponent = ({
                 href={"/patient/payments"}
               >
                 <CreditCard className="mr-2 h-4 w-4" />
-                Payments
+                {sidebarOpen && <span>Payments</span>}
               </Link>
             </li>
           </ul>
         </div>
       </aside>
 
-      {/* Main Content */}
-      <div
-        className={`p-4 sm:ml-64 transition-all duration-300 ease-in-out ${
-          sidebarOpen ? "" : "sm:ml-0"
-        }`}
-      >
-        {/* Header */}
-        <header className="bg-white dark:bg-gray-800 shadow-md rounded-lg mb-6">
+      <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 dark:bg-gray-900">
+        <header className="bg-white dark:bg-gray-800 shadow-md rounded-lg mb-0 mx-10 my-4">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            {/* <Button
-              variant="ghost"
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="lg:hidden"
-            >
-              <Menu className="h-6 w-6" />
-            </Button> */}
             <div className="flex items-center space-x-4">
               <TooltipProvider>
                 <Tooltip>
@@ -174,10 +174,9 @@ const PatientDashboardComponent = ({
             </div>
           </div>
         </header>
-
-        {/* Dynamic Content */}
         <div className="container px-6 py-8 mx-auto">{children}</div>
-      </div>
+      </main>
+      {/* Main Content */}
     </div>
   );
 };

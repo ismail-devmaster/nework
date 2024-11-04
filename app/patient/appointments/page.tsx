@@ -266,11 +266,11 @@ const AppointmentsPageComponent = () => {
   const closeDialog = () => setIsDialogOpen(false);
 
   return (
-    <>
+    <div className="w-full max-w-6xl mx-auto">
       <main>
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center dark:text-white">
           Appointments
-        </h2>
+        </h1>
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-4 mb-8 bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
             <TabsTrigger
@@ -774,7 +774,7 @@ const AppointmentsPageComponent = () => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-    </>
+    </div>
   );
 };
 export default AppointmentsPageComponent;

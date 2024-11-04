@@ -22,7 +22,7 @@ const mockQueueData = [
   { id: 4, name: "Bob Brown", individualWaitTime: 15 },
 ];
 
-const QueueStatus =()=>{
+const QueueStatus = () => {
   const [queueData, setQueueData] = useState(mockQueueData);
   const [userPosition, setUserPosition] = useState(3); // Assuming the user is in position 3
   const { toast } = useToast();
@@ -78,59 +78,64 @@ const QueueStatus =()=>{
   );
 
   return (
-    <Card className="w-full max-w-3xl mx-auto">
-      <CardHeader>
-        <CardTitle className="text-2xl flex items-center">
-          <Users className="mr-2 h-6 w-6 text-blue-500" />
-          Queue Status
-        </CardTitle>
-        <CardDescription>Real-time view of the waiting queue</CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-6">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <Badge variant="secondary" className="mr-2">
-              Your Position: {userPosition}
-            </Badge>
-            <Clock className="mr-2 h-4 w-4 text-gray-500" />
-            <span>Estimated Wait: {userEstimatedWaitTime} minutes</span>
-          </div>
-          <Button
-            variant="outline"
-            size="sm"
-            className="flex items-center"
-            onClick={() => {
-              toast({
-                title: "Notification Set",
-                description: "We'll notify you when it's almost your turn.",
-              });
-            }}
-          >
-            <Bell className="mr-2 h-4 w-4" />
-            Notify Me
-          </Button>
-        </div>
-        <Progress
-          value={(totalWaitTimeBeforeUser / userEstimatedWaitTime) * 100}
-          className="w-full"
-        />
-        <div className="space-y-4">
-          {patientsBeforeUser.map((item, index) => (
-            <div
-              key={item.id}
-              className="flex justify-between items-center p-3 rounded-lg bg-gray-100 dark:bg-gray-800"
-            >
-              <span className="font-medium">Patient {item.id}</span>
-              <span>{item.estimatedWaitTime} minutes</span>
+    <div className="w-full max-w-6xl mx-auto">
+      <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center dark:text-white">
+        Queue Status
+      </h1>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl flex items-center">
+            <Users className="mr-2 h-6 w-6 text-blue-500" />
+            Queue Status
+          </CardTitle>
+          <CardDescription>Real-time view of the waiting queue</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center">
+              <Badge variant="secondary" className="mr-2">
+                Your Position: {userPosition}
+              </Badge>
+              <Clock className="mr-2 h-4 w-4 text-gray-500" />
+              <span>Estimated Wait: {userEstimatedWaitTime} minutes</span>
             </div>
-          ))}
-          <div className="flex justify-between items-center p-3 rounded-lg bg-blue-100 dark:bg-blue-900">
-            <span className="font-medium">You</span>
-            <span>{userEstimatedWaitTime} minutes</span>
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex items-center"
+              onClick={() => {
+                toast({
+                  title: "Notification Set",
+                  description: "We'll notify you when it's almost your turn.",
+                });
+              }}
+            >
+              <Bell className="mr-2 h-4 w-4" />
+              Notify Me
+            </Button>
           </div>
-        </div>
-      </CardContent>
-    </Card>
+          <Progress
+            value={(totalWaitTimeBeforeUser / userEstimatedWaitTime) * 100}
+            className="w-full"
+          />
+          <div className="space-y-4">
+            {patientsBeforeUser.map((item, index) => (
+              <div
+                key={item.id}
+                className="flex justify-between items-center p-3 rounded-lg bg-gray-100 dark:bg-gray-800"
+              >
+                <span className="font-medium">Patient {item.id}</span>
+                <span>{item.estimatedWaitTime} minutes</span>
+              </div>
+            ))}
+            <div className="flex justify-between items-center p-3 rounded-lg bg-blue-100 dark:bg-blue-900">
+              <span className="font-medium">You</span>
+              <span>{userEstimatedWaitTime} minutes</span>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
   );
-}
-export default QueueStatus
+};
+export default QueueStatus;

@@ -1,17 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import {
   Bell,
   Calendar,
   CreditCard,
   FileText,
-  Home,
-  Menu,
-  Moon,
-  Search,
-  Sun,
   User,
-  ChevronRight,
   ArrowUpRight,
   ArrowDownRight,
 } from "lucide-react";
@@ -21,28 +15,11 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-  CardDescription,
   CardFooter,
 } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Progress } from "@/components/ui/progress";
 import {
   LineChart,
@@ -81,7 +58,10 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 const page = () => {
   return (
-    <div>
+    <div className="w-full max-w-6xl mx-auto">
+      <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center dark:text-white">
+        Dashboard
+      </h1>
       {/* Quick Actions */}
       <div className="mb-6">
         <h2 className="text-lg font-semibold mb-2">Quick Actions</h2>

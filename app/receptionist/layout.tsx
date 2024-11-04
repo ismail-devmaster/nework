@@ -20,6 +20,7 @@ const ReceptionistDashboardComponent = ({
 }) => {
   const [activeContent, setActiveContent] = React.useState("");
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
+  const [sidebarOpen, setSidebarOpen] = React.useState(true);
   const [, setShowToggle] = React.useState(true);
 
   const toggleSidebar = () => {
