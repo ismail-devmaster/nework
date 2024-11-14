@@ -1206,7 +1206,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$use$2d$t
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/dialog.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/alert-dialog.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$format$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_import__("[project]/node_modules/date-fns/format.js [app-client] (ecmascript) <locals>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/calendar.js [app-client] (ecmascript) <export default as Calendar>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CalendarIcon$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/calendar.js [app-client] (ecmascript) <export default as CalendarIcon>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/clock.js [app-client] (ecmascript) <export default as Clock>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/user.js [app-client] (ecmascript) <export default as User>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$bell$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Bell$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/bell.js [app-client] (ecmascript) <export default as Bell>");
@@ -1260,6 +1260,7 @@ const AppointmentsPageComponent = ()=>{
             reason: "Annual Physical"
         }
     ]);
+    const [waitingAppointments, setWaitingAppointments] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [appointmentToReschedule, setAppointmentToReschedule] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [isRescheduleDialogOpen, setIsRescheduleDialogOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [appointmentHistory, setAppointmentHistory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([
@@ -1338,7 +1339,7 @@ const AppointmentsPageComponent = ()=>{
             doctor: selectedDoctor,
             reason: selectedReason
         };
-        setUpcomingAppointments((prevAppointments)=>[
+        setWaitingAppointments((prevAppointments)=>[
                 ...prevAppointments,
                 newAppointment
             ]);
@@ -1352,8 +1353,8 @@ const AppointmentsPageComponent = ()=>{
         setSelectedDoctor(null);
         setSelectedReason(null);
         setAdditionalNotes("");
-        // Switch to the Upcoming tab
-        setActiveTab("upcoming");
+        // Switch to the Waiting tab
+        setActiveTab("waiting");
     };
     const handleCancelBooking = ()=>{
         // Reset form
@@ -1409,6 +1410,17 @@ const AppointmentsPageComponent = ()=>{
     const [isDialogOpen, setIsDialogOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const openDialog = ()=>setIsDialogOpen(true);
     const closeDialog = ()=>setIsDialogOpen(false);
+    const disabledDates = [
+        "2024-11-25",
+        "2024-12-31"
+    ];
+    // Function to handle date selection, with disabled dates check
+    const handleSelectDate = (selectedDate)=>{
+        const isDisabled = disabledDates.some((disabledDate)=>new Date(disabledDate).toDateString() === selectedDate.toDateString());
+        if (!isDisabled) {
+            setDate(selectedDate);
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "w-full max-w-6xl mx-auto",
         children: [
@@ -1419,7 +1431,7 @@ const AppointmentsPageComponent = ()=>{
                         children: "Appointments"
                     }, void 0, false, {
                         fileName: "[project]/app/patient/appointments/page.tsx",
-                        lineNumber: 271,
+                        lineNumber: 285,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Tabs"], {
@@ -1428,7 +1440,7 @@ const AppointmentsPageComponent = ()=>{
                         className: "w-full",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsList"], {
-                                className: "grid w-full grid-cols-4 mb-8 bg-gray-100 dark:bg-gray-700 rounded-lg p-1",
+                                className: "grid w-full grid-cols-5 mb-8 bg-gray-100 dark:bg-gray-700 rounded-lg p-1",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
                                         value: "book-new",
@@ -1436,7 +1448,16 @@ const AppointmentsPageComponent = ()=>{
                                         children: "Book New"
                                     }, void 0, false, {
                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                        lineNumber: 276,
+                                        lineNumber: 290,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
+                                        value: "waiting",
+                                        className: "data-[state=active]:bg-white dark:data-[state=active]:bg-gray-600 data-[state=active]:text-blue-600 dark:data-[state=active]:text-white",
+                                        children: "Waiting"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/patient/appointments/page.tsx",
+                                        lineNumber: 296,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -1445,7 +1466,7 @@ const AppointmentsPageComponent = ()=>{
                                         children: "Upcoming"
                                     }, void 0, false, {
                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                        lineNumber: 282,
+                                        lineNumber: 302,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -1454,7 +1475,7 @@ const AppointmentsPageComponent = ()=>{
                                         children: "History"
                                     }, void 0, false, {
                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                        lineNumber: 288,
+                                        lineNumber: 308,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -1463,13 +1484,13 @@ const AppointmentsPageComponent = ()=>{
                                         children: "Reminders"
                                     }, void 0, false, {
                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                        lineNumber: 294,
+                                        lineNumber: 314,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                lineNumber: 275,
+                                lineNumber: 289,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
@@ -1486,12 +1507,12 @@ const AppointmentsPageComponent = ()=>{
                                                         children: "Select Date and Time"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                        lineNumber: 306,
+                                                        lineNumber: 326,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 305,
+                                                    lineNumber: 325,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1503,17 +1524,17 @@ const AppointmentsPageComponent = ()=>{
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$calendar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Calendar"], {
                                                                     mode: "single",
                                                                     selected: date,
-                                                                    onSelect: setDate,
-                                                                    fromDate: today,
+                                                                    onSelect: handleSelectDate,
+                                                                    fromDate: new Date(),
                                                                     className: "rounded-md border-gray-200 dark:border-gray-700"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 313,
+                                                                    lineNumber: 333,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                lineNumber: 312,
+                                                                lineNumber: 332,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1525,29 +1546,29 @@ const AppointmentsPageComponent = ()=>{
                                                                         children: time
                                                                     }, time, false, {
                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                        lineNumber: 323,
+                                                                        lineNumber: 343,
                                                                         columnNumber: 25
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                lineNumber: 321,
+                                                                lineNumber: 341,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                        lineNumber: 311,
+                                                        lineNumber: 331,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 310,
+                                                    lineNumber: 330,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 304,
+                                            lineNumber: 324,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1558,12 +1579,12 @@ const AppointmentsPageComponent = ()=>{
                                                         children: "Appointment Details"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                        lineNumber: 340,
+                                                        lineNumber: 360,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 339,
+                                                    lineNumber: 359,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1577,7 +1598,7 @@ const AppointmentsPageComponent = ()=>{
                                                                     children: "Select Doctor"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 346,
+                                                                    lineNumber: 366,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1590,12 +1611,12 @@ const AppointmentsPageComponent = ()=>{
                                                                                 placeholder: "Choose a doctor"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                lineNumber: 352,
+                                                                                lineNumber: 372,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 351,
+                                                                            lineNumber: 371,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1613,32 +1634,32 @@ const AppointmentsPageComponent = ()=>{
                                                                                                         alt: "Dr. Smith"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                                        lineNumber: 358,
+                                                                                                        lineNumber: 378,
                                                                                                         columnNumber: 31
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                                                                         children: "DS"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                                        lineNumber: 362,
+                                                                                                        lineNumber: 382,
                                                                                                         columnNumber: 31
                                                                                                     }, this)
                                                                                                 ]
                                                                                             }, void 0, true, {
                                                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                                lineNumber: 357,
+                                                                                                lineNumber: 377,
                                                                                                 columnNumber: 29
                                                                                             }, this),
                                                                                             "Dr. Smith (Cardiology)"
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                        lineNumber: 356,
+                                                                                        lineNumber: 376,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                    lineNumber: 355,
+                                                                                    lineNumber: 375,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1654,50 +1675,50 @@ const AppointmentsPageComponent = ()=>{
                                                                                                         alt: "Dr. Johnson"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                                        lineNumber: 370,
+                                                                                                        lineNumber: 390,
                                                                                                         columnNumber: 31
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                                                                         children: "DJ"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                                        lineNumber: 374,
+                                                                                                        lineNumber: 394,
                                                                                                         columnNumber: 31
                                                                                                     }, this)
                                                                                                 ]
                                                                                             }, void 0, true, {
                                                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                                lineNumber: 369,
+                                                                                                lineNumber: 389,
                                                                                                 columnNumber: 29
                                                                                             }, this),
                                                                                             "Dr. Johnson (Neurology)"
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                        lineNumber: 368,
+                                                                                        lineNumber: 388,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                    lineNumber: 367,
+                                                                                    lineNumber: 387,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 354,
+                                                                            lineNumber: 374,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 347,
+                                                                    lineNumber: 367,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 345,
+                                                            lineNumber: 365,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1708,7 +1729,7 @@ const AppointmentsPageComponent = ()=>{
                                                                     children: "Reason for Visit"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 383,
+                                                                    lineNumber: 403,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1721,12 +1742,12 @@ const AppointmentsPageComponent = ()=>{
                                                                                 placeholder: "Select reason"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                lineNumber: 389,
+                                                                                lineNumber: 409,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 388,
+                                                                            lineNumber: 408,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1735,24 +1756,24 @@ const AppointmentsPageComponent = ()=>{
                                                                                     children: reason
                                                                                 }, reason, false, {
                                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                    lineNumber: 393,
+                                                                                    lineNumber: 413,
                                                                                     columnNumber: 27
                                                                                 }, this))
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 391,
+                                                                            lineNumber: 411,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 384,
+                                                                    lineNumber: 404,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 382,
+                                                            lineNumber: 402,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1763,7 +1784,7 @@ const AppointmentsPageComponent = ()=>{
                                                                     children: "Additional Notes"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 401,
+                                                                    lineNumber: 421,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1774,19 +1795,19 @@ const AppointmentsPageComponent = ()=>{
                                                                     className: "min-h-[100px] resize-none border-gray-200 dark:border-gray-700"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 402,
+                                                                    lineNumber: 422,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 400,
+                                                            lineNumber: 420,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 344,
+                                                    lineNumber: 364,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardFooter"], {
@@ -1799,7 +1820,7 @@ const AppointmentsPageComponent = ()=>{
                                                             children: "Cancel"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 412,
+                                                            lineNumber: 432,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1817,7 +1838,7 @@ const AppointmentsPageComponent = ()=>{
                                                             children: "Confirm Appointment"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 420,
+                                                            lineNumber: 440,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialog"], {
@@ -1831,20 +1852,20 @@ const AppointmentsPageComponent = ()=>{
                                                                                 children: "Are you sure you want to book this appointment?"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                lineNumber: 446,
+                                                                                lineNumber: 466,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogDescription"], {
                                                                                 children: "This action cannot be undone. This will permanently delete your account and remove your data from our servers."
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                lineNumber: 449,
+                                                                                lineNumber: 469,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                        lineNumber: 445,
+                                                                        lineNumber: 465,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogFooter"], {
@@ -1854,7 +1875,7 @@ const AppointmentsPageComponent = ()=>{
                                                                                 children: "Cancel"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                lineNumber: 456,
+                                                                                lineNumber: 476,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogAction"], {
@@ -1862,47 +1883,182 @@ const AppointmentsPageComponent = ()=>{
                                                                                 children: "Continue"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                lineNumber: 459,
+                                                                                lineNumber: 479,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                        lineNumber: 455,
+                                                                        lineNumber: 475,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                lineNumber: 444,
+                                                                lineNumber: 464,
                                                                 columnNumber: 21
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 440,
+                                                            lineNumber: 460,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 411,
+                                                    lineNumber: 431,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 338,
+                                            lineNumber: 358,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 303,
+                                    lineNumber: 323,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                lineNumber: 302,
+                                lineNumber: 322,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
+                                value: "waiting",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
+                                    children: waitingAppointments.map((appointment)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                                            className: "hover:shadow-lg transition-shadow duration-300",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardHeader"], {
+                                                    className: "bg-yellow-50 dark:bg-gray-700",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
+                                                            className: "flex items-center",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CalendarIcon$3e$__["CalendarIcon"], {
+                                                                    className: "mr-2 h-5 w-5 text-yellow-500"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/patient/appointments/page.tsx",
+                                                                    lineNumber: 499,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                appointment.date
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/patient/appointments/page.tsx",
+                                                            lineNumber: 498,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
+                                                            className: "flex items-center",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
+                                                                    className: "mr-2 h-4 w-4 text-gray-500 dark:text-gray-400"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/patient/appointments/page.tsx",
+                                                                    lineNumber: 503,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                appointment.time
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/patient/appointments/page.tsx",
+                                                            lineNumber: 502,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/patient/appointments/page.tsx",
+                                                    lineNumber: 497,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
+                                                    className: "pt-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex items-center mb-2",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {
+                                                                    className: "mr-2 h-4 w-4 text-gray-500 dark:text-gray-400"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/patient/appointments/page.tsx",
+                                                                    lineNumber: 509,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "font-semibold text-gray-900 dark:text-white",
+                                                                    children: appointment.doctor
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/patient/appointments/page.tsx",
+                                                                    lineNumber: 510,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/patient/appointments/page.tsx",
+                                                            lineNumber: 508,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-sm text-gray-500 dark:text-gray-400",
+                                                            children: appointment.reason
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/patient/appointments/page.tsx",
+                                                            lineNumber: 514,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/patient/appointments/page.tsx",
+                                                    lineNumber: 507,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardFooter"], {
+                                                    className: "flex justify-between",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                            variant: "outline",
+                                                            className: "border-gray-200 dark:border-gray-700",
+                                                            onClick: ()=>handleReschedule(appointment),
+                                                            children: "Reschedule"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/patient/appointments/page.tsx",
+                                                            lineNumber: 519,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                            variant: "destructive",
+                                                            onClick: ()=>handleCancel(appointment.id),
+                                                            children: "Cancel"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/patient/appointments/page.tsx",
+                                                            lineNumber: 526,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/patient/appointments/page.tsx",
+                                                    lineNumber: 518,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, appointment.id, true, {
+                                            fileName: "[project]/app/patient/appointments/page.tsx",
+                                            lineNumber: 493,
+                                            columnNumber: 17
+                                        }, this))
+                                }, void 0, false, {
+                                    fileName: "[project]/app/patient/appointments/page.tsx",
+                                    lineNumber: 491,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/patient/appointments/page.tsx",
+                                lineNumber: 490,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
@@ -1918,18 +2074,18 @@ const AppointmentsPageComponent = ()=>{
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
                                                             className: "flex items-center",
                                                             children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CalendarIcon$3e$__["CalendarIcon"], {
                                                                     className: "mr-2 h-5 w-5 text-blue-500"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 479,
+                                                                    lineNumber: 547,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 appointment.date
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 478,
+                                                            lineNumber: 546,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
@@ -1939,20 +2095,20 @@ const AppointmentsPageComponent = ()=>{
                                                                     className: "mr-2 h-4 w-4 text-gray-500 dark:text-gray-400"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 483,
+                                                                    lineNumber: 551,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 appointment.time
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 482,
+                                                            lineNumber: 550,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 477,
+                                                    lineNumber: 545,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1965,7 +2121,7 @@ const AppointmentsPageComponent = ()=>{
                                                                     className: "mr-2 h-4 w-4 text-gray-500 dark:text-gray-400"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 489,
+                                                                    lineNumber: 557,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1973,13 +2129,13 @@ const AppointmentsPageComponent = ()=>{
                                                                     children: appointment.doctor
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 490,
+                                                                    lineNumber: 558,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 488,
+                                                            lineNumber: 556,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1987,13 +2143,13 @@ const AppointmentsPageComponent = ()=>{
                                                             children: appointment.reason
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 494,
+                                                            lineNumber: 562,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 487,
+                                                    lineNumber: 555,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardFooter"], {
@@ -2006,7 +2162,7 @@ const AppointmentsPageComponent = ()=>{
                                                             children: "Reschedule"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 499,
+                                                            lineNumber: 567,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2015,29 +2171,29 @@ const AppointmentsPageComponent = ()=>{
                                                             children: "Cancel"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 506,
+                                                            lineNumber: 574,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 498,
+                                                    lineNumber: 566,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, appointment.id, true, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 473,
+                                            lineNumber: 541,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 471,
+                                    lineNumber: 539,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                lineNumber: 470,
+                                lineNumber: 538,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
@@ -2050,12 +2206,12 @@ const AppointmentsPageComponent = ()=>{
                                                 children: "Appointment History"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                lineNumber: 521,
+                                                lineNumber: 589,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 520,
+                                            lineNumber: 588,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2070,53 +2226,53 @@ const AppointmentsPageComponent = ()=>{
                                                                         children: "Date"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                        lineNumber: 528,
+                                                                        lineNumber: 596,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                                         children: "Time"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                        lineNumber: 529,
+                                                                        lineNumber: 597,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                                         children: "Doctor"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                        lineNumber: 530,
+                                                                        lineNumber: 598,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                                         children: "Reason"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                        lineNumber: 531,
+                                                                        lineNumber: 599,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                                         children: "Outcome"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                        lineNumber: 532,
+                                                                        lineNumber: 600,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                                         children: "Actions"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                        lineNumber: 533,
+                                                                        lineNumber: 601,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                lineNumber: 527,
+                                                                lineNumber: 595,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 526,
+                                                            lineNumber: 594,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -2126,28 +2282,28 @@ const AppointmentsPageComponent = ()=>{
                                                                             children: appointment.date
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 539,
+                                                                            lineNumber: 607,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                             children: appointment.time
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 540,
+                                                                            lineNumber: 608,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                             children: appointment.doctor
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 541,
+                                                                            lineNumber: 609,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                                             children: appointment.reason
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 542,
+                                                                            lineNumber: 610,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2156,12 +2312,12 @@ const AppointmentsPageComponent = ()=>{
                                                                                 children: appointment.outcome
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                lineNumber: 544,
+                                                                                lineNumber: 612,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 543,
+                                                                            lineNumber: 611,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2171,50 +2327,50 @@ const AppointmentsPageComponent = ()=>{
                                                                                 children: "View Details"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                lineNumber: 549,
+                                                                                lineNumber: 617,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 548,
+                                                                            lineNumber: 616,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, appointment.id, true, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 538,
+                                                                    lineNumber: 606,
                                                                     columnNumber: 25
                                                                 }, this))
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 536,
+                                                            lineNumber: 604,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 525,
+                                                    lineNumber: 593,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                lineNumber: 524,
+                                                lineNumber: 592,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 523,
+                                            lineNumber: 591,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 519,
+                                    lineNumber: 587,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                lineNumber: 518,
+                                lineNumber: 586,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
@@ -2229,19 +2385,19 @@ const AppointmentsPageComponent = ()=>{
                                                         className: "mr-2 h-6 w-6 text-blue-500"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                        lineNumber: 569,
+                                                        lineNumber: 637,
                                                         columnNumber: 19
                                                     }, this),
                                                     "Appointment Reminders"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                lineNumber: 568,
+                                                lineNumber: 636,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 567,
+                                            lineNumber: 635,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2267,46 +2423,46 @@ const AppointmentsPageComponent = ()=>{
                                                                                     d: "M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                    lineNumber: 586,
+                                                                                    lineNumber: 654,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                                                                                     d: "M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                    lineNumber: 587,
+                                                                                    lineNumber: 655,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 580,
+                                                                            lineNumber: 648,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                             children: "Email Reminders"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 589,
+                                                                            lineNumber: 657,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 576,
+                                                                    lineNumber: 644,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Switch"], {
                                                                     id: "email-reminder"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 591,
+                                                                    lineNumber: 659,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 575,
+                                                            lineNumber: 643,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2325,38 +2481,38 @@ const AppointmentsPageComponent = ()=>{
                                                                                 d: "M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                lineNumber: 604,
+                                                                                lineNumber: 672,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 598,
+                                                                            lineNumber: 666,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                             children: "SMS Reminders"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 606,
+                                                                            lineNumber: 674,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 594,
+                                                                    lineNumber: 662,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Switch"], {
                                                                     id: "sms-reminder"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 608,
+                                                                    lineNumber: 676,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 593,
+                                                            lineNumber: 661,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2375,44 +2531,44 @@ const AppointmentsPageComponent = ()=>{
                                                                                 d: "M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                                lineNumber: 621,
+                                                                                lineNumber: 689,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 615,
+                                                                            lineNumber: 683,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                             children: "Push Notifications"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 623,
+                                                                            lineNumber: 691,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 611,
+                                                                    lineNumber: 679,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Switch"], {
                                                                     id: "push-reminder"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 625,
+                                                                    lineNumber: 693,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 610,
+                                                            lineNumber: 678,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 574,
+                                                    lineNumber: 642,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2424,7 +2580,7 @@ const AppointmentsPageComponent = ()=>{
                                                             children: "Reminder Timing"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 629,
+                                                            lineNumber: 697,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -2435,12 +2591,12 @@ const AppointmentsPageComponent = ()=>{
                                                                         placeholder: "Select timing"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                        lineNumber: 637,
+                                                                        lineNumber: 705,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 636,
+                                                                    lineNumber: 704,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2450,7 +2606,7 @@ const AppointmentsPageComponent = ()=>{
                                                                             children: "1 day before"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 640,
+                                                                            lineNumber: 708,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2458,7 +2614,7 @@ const AppointmentsPageComponent = ()=>{
                                                                             children: "2 hours before"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 641,
+                                                                            lineNumber: 709,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2466,25 +2622,25 @@ const AppointmentsPageComponent = ()=>{
                                                                             children: "1 hour before"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                            lineNumber: 642,
+                                                                            lineNumber: 710,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                                    lineNumber: 639,
+                                                                    lineNumber: 707,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 635,
+                                                            lineNumber: 703,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 628,
+                                                    lineNumber: 696,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2496,7 +2652,7 @@ const AppointmentsPageComponent = ()=>{
                                                             className: "rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 647,
+                                                            lineNumber: 715,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
@@ -2505,13 +2661,13 @@ const AppointmentsPageComponent = ()=>{
                                                             children: "Apply to all future appointments"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 652,
+                                                            lineNumber: 720,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 646,
+                                                    lineNumber: 714,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2519,36 +2675,36 @@ const AppointmentsPageComponent = ()=>{
                                                     children: "Save Reminder Settings"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 659,
+                                                    lineNumber: 727,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 573,
+                                            lineNumber: 641,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 566,
+                                    lineNumber: 634,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                lineNumber: 565,
+                                lineNumber: 633,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/patient/appointments/page.tsx",
-                        lineNumber: 274,
+                        lineNumber: 288,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/patient/appointments/page.tsx",
-                lineNumber: 270,
+                lineNumber: 284,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -2562,20 +2718,20 @@ const AppointmentsPageComponent = ()=>{
                                     children: "Reschedule Appointment"
                                 }, void 0, false, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 672,
+                                    lineNumber: 740,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogDescription"], {
                                     children: "Please select a new date and time for your appointment."
                                 }, void 0, false, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 673,
+                                    lineNumber: 741,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/patient/appointments/page.tsx",
-                            lineNumber: 671,
+                            lineNumber: 739,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2590,7 +2746,7 @@ const AppointmentsPageComponent = ()=>{
                                             children: "Date"
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 679,
+                                            lineNumber: 747,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2603,18 +2759,18 @@ const AppointmentsPageComponent = ()=>{
                                                 className: "rounded-md border"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                                lineNumber: 683,
+                                                lineNumber: 751,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 682,
+                                            lineNumber: 750,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 678,
+                                    lineNumber: 746,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2626,7 +2782,7 @@ const AppointmentsPageComponent = ()=>{
                                             children: "Time"
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 693,
+                                            lineNumber: 761,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -2639,12 +2795,12 @@ const AppointmentsPageComponent = ()=>{
                                                         placeholder: "Select a time"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/patient/appointments/page.tsx",
-                                                        lineNumber: 701,
+                                                        lineNumber: 769,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 700,
+                                                    lineNumber: 768,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2653,30 +2809,30 @@ const AppointmentsPageComponent = ()=>{
                                                             children: time
                                                         }, time, false, {
                                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                                            lineNumber: 705,
+                                                            lineNumber: 773,
                                                             columnNumber: 21
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                                    lineNumber: 703,
+                                                    lineNumber: 771,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 696,
+                                            lineNumber: 764,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 692,
+                                    lineNumber: 760,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/patient/appointments/page.tsx",
-                            lineNumber: 677,
+                            lineNumber: 745,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -2687,7 +2843,7 @@ const AppointmentsPageComponent = ()=>{
                                     children: "Cancel"
                                 }, void 0, false, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 714,
+                                    lineNumber: 782,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2695,24 +2851,24 @@ const AppointmentsPageComponent = ()=>{
                                     children: "Confirm Reschedule"
                                 }, void 0, false, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 720,
+                                    lineNumber: 788,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/patient/appointments/page.tsx",
-                            lineNumber: 713,
+                            lineNumber: 781,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/patient/appointments/page.tsx",
-                    lineNumber: 670,
+                    lineNumber: 738,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/patient/appointments/page.tsx",
-                lineNumber: 666,
+                lineNumber: 734,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -2725,12 +2881,12 @@ const AppointmentsPageComponent = ()=>{
                                 children: "Appointment Details"
                             }, void 0, false, {
                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                lineNumber: 730,
+                                lineNumber: 798,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/patient/appointments/page.tsx",
-                            lineNumber: 729,
+                            lineNumber: 797,
                             columnNumber: 11
                         }, this),
                         selectedAppointmentDetails && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2744,7 +2900,7 @@ const AppointmentsPageComponent = ()=>{
                                             children: "Date:"
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 735,
+                                            lineNumber: 803,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2752,13 +2908,13 @@ const AppointmentsPageComponent = ()=>{
                                             children: selectedAppointmentDetails.date
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 736,
+                                            lineNumber: 804,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 734,
+                                    lineNumber: 802,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2769,7 +2925,7 @@ const AppointmentsPageComponent = ()=>{
                                             children: "Time:"
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 741,
+                                            lineNumber: 809,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2777,13 +2933,13 @@ const AppointmentsPageComponent = ()=>{
                                             children: selectedAppointmentDetails.time
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 742,
+                                            lineNumber: 810,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 740,
+                                    lineNumber: 808,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2794,7 +2950,7 @@ const AppointmentsPageComponent = ()=>{
                                             children: "Doctor:"
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 747,
+                                            lineNumber: 815,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2802,13 +2958,13 @@ const AppointmentsPageComponent = ()=>{
                                             children: selectedAppointmentDetails.doctor
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 748,
+                                            lineNumber: 816,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 746,
+                                    lineNumber: 814,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2819,7 +2975,7 @@ const AppointmentsPageComponent = ()=>{
                                             children: "Reason:"
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 753,
+                                            lineNumber: 821,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2827,13 +2983,13 @@ const AppointmentsPageComponent = ()=>{
                                             children: selectedAppointmentDetails.reason
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 754,
+                                            lineNumber: 822,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 752,
+                                    lineNumber: 820,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2844,7 +3000,7 @@ const AppointmentsPageComponent = ()=>{
                                             children: "Outcome:"
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 759,
+                                            lineNumber: 827,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2852,13 +3008,13 @@ const AppointmentsPageComponent = ()=>{
                                             children: selectedAppointmentDetails.outcome
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 760,
+                                            lineNumber: 828,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 758,
+                                    lineNumber: 826,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2869,7 +3025,7 @@ const AppointmentsPageComponent = ()=>{
                                             children: "Notes:"
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 765,
+                                            lineNumber: 833,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2877,19 +3033,19 @@ const AppointmentsPageComponent = ()=>{
                                             children: selectedAppointmentDetails.notes
                                         }, void 0, false, {
                                             fileName: "[project]/app/patient/appointments/page.tsx",
-                                            lineNumber: 766,
+                                            lineNumber: 834,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/patient/appointments/page.tsx",
-                                    lineNumber: 764,
+                                    lineNumber: 832,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/patient/appointments/page.tsx",
-                            lineNumber: 733,
+                            lineNumber: 801,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -2898,33 +3054,33 @@ const AppointmentsPageComponent = ()=>{
                                 children: "Close"
                             }, void 0, false, {
                                 fileName: "[project]/app/patient/appointments/page.tsx",
-                                lineNumber: 773,
+                                lineNumber: 841,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/patient/appointments/page.tsx",
-                            lineNumber: 772,
+                            lineNumber: 840,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/patient/appointments/page.tsx",
-                    lineNumber: 728,
+                    lineNumber: 796,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/patient/appointments/page.tsx",
-                lineNumber: 727,
+                lineNumber: 795,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/patient/appointments/page.tsx",
-        lineNumber: 269,
+        lineNumber: 283,
         columnNumber: 5
     }, this);
 };
-_s(AppointmentsPageComponent, "kwG9pcDINrxPlV/curBZPKzmM4E=", false, function() {
+_s(AppointmentsPageComponent, "CuUpZdrwXy8H5HUSywp/yfiXDV4=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$use$2d$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useToast"]
     ];

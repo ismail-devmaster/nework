@@ -31,7 +31,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Switch } from "@/components/ui/switch";
-import { Bell, Calendar as CalendarIcon, Clock, User } from "lucide-react";
+import { Bell, CalendarIcon, Clock, User } from "lucide-react";
 import { format } from "date-fns";
 import { useToast } from "@/components/ui/use-toast";
 import {
@@ -85,6 +85,7 @@ const AppointmentsPageComponent = () => {
       reason: "Annual Physical",
     },
   ]);
+  const [waitingAppointments, setWaitingAppointments] = useState([]);
   const [appointmentToReschedule, setAppointmentToReschedule] = useState(null);
   const [isRescheduleDialogOpen, setIsRescheduleDialogOpen] = useState(false);
   const [appointmentHistory, setAppointmentHistory] = useState([
@@ -168,7 +169,7 @@ const AppointmentsPageComponent = () => {
       reason: selectedReason,
     };
 
-    setUpcomingAppointments((prevAppointments) => [
+    setWaitingAppointments((prevAppointments) => [
       ...prevAppointments,
       newAppointment,
     ]);
@@ -188,8 +189,8 @@ const AppointmentsPageComponent = () => {
     setSelectedReason(null);
     setAdditionalNotes("");
 
-    // Switch to the Upcoming tab
-    setActiveTab("upcoming");
+    // Switch to the Waiting tab
+    setActiveTab("waiting");
   };
 
   const handleCancelBooking = () => {
@@ -265,6 +266,19 @@ const AppointmentsPageComponent = () => {
   const openDialog = () => setIsDialogOpen(true);
   const closeDialog = () => setIsDialogOpen(false);
 
+  const disabledDates = ["2024-11-25", "2024-12-31"];
+
+  // Function to handle date selection, with disabled dates check
+  const handleSelectDate = (selectedDate) => {
+    const isDisabled = disabledDates.some(
+      (disabledDate) =>
+        new Date(disabledDate).toDateString() === selectedDate.toDateString()
+    );
+    if (!isDisabled) {
+      setDate(selectedDate);
+    }
+  };
+
   return (
     <div className="w-full max-w-6xl mx-auto">
       <main>
@@ -272,12 +286,18 @@ const AppointmentsPageComponent = () => {
           Appointments
         </h1>
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8 bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+          <TabsList className="grid w-full grid-cols-5 mb-8 bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
             <TabsTrigger
               value="book-new"
               className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-600 data-[state=active]:text-blue-600 dark:data-[state=active]:text-white"
             >
               Book New
+            </TabsTrigger>
+            <TabsTrigger
+              value="waiting"
+              className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-600 data-[state=active]:text-blue-600 dark:data-[state=active]:text-white"
+            >
+              Waiting
             </TabsTrigger>
             <TabsTrigger
               value="upcoming"
@@ -313,8 +333,8 @@ const AppointmentsPageComponent = () => {
                       <Calendar
                         mode="single"
                         selected={date}
-                        onSelect={setDate}
-                        fromDate={today}
+                        onSelect={handleSelectDate}
+                        fromDate={new Date()}
                         className="rounded-md border-gray-200 dark:border-gray-700"
                       />
                     </div>
@@ -464,6 +484,54 @@ const AppointmentsPageComponent = () => {
                   </AlertDialog>
                 </CardFooter>
               </Card>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="waiting">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {waitingAppointments.map((appointment) => (
+                <Card
+                  key={appointment.id}
+                  className="hover:shadow-lg transition-shadow duration-300"
+                >
+                  <CardHeader className="bg-yellow-50 dark:bg-gray-700">
+                    <CardTitle className="flex items-center">
+                      <CalendarIcon className="mr-2 h-5 w-5 text-yellow-500" />
+                      {appointment.date}
+                    </CardTitle>
+                    <CardDescription className="flex items-center">
+                      <Clock className="mr-2 h-4 w-4 text-gray-500 dark:text-gray-400" />
+                      {appointment.time}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-4">
+                    <div className="flex items-center mb-2">
+                      <User className="mr-2 h-4 w-4 text-gray-500 dark:text-gray-400" />
+                      <p className="font-semibold text-gray-900 dark:text-white">
+                        {appointment.doctor}
+                      </p>
+                    </div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {appointment.reason}
+                    </p>
+                  </CardContent>
+                  <CardFooter className="flex justify-between">
+                    <Button
+                      variant="outline"
+                      className="border-gray-200 dark:border-gray-700"
+                      onClick={() => handleReschedule(appointment)}
+                    >
+                      Reschedule
+                    </Button>
+                    <Button
+                      variant="destructive"
+                      onClick={() => handleCancel(appointment.id)}
+                    >
+                      Cancel
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
             </div>
           </TabsContent>
 
