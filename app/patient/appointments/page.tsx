@@ -31,7 +31,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Switch } from "@/components/ui/switch";
-import { Bell, Calendar as CalendarIcon, Clock, User } from "lucide-react";
+import { Bell, CalendarIcon, Clock, User } from "lucide-react";
 import { format } from "date-fns";
 import { useToast } from "@/components/ui/use-toast";
 import {
@@ -55,7 +55,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-const AppointmentsPageComponent = () => {
+export default function AppointmentsPageComponent() {
   const { toast } = useToast();
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
@@ -85,6 +85,7 @@ const AppointmentsPageComponent = () => {
       reason: "Annual Physical",
     },
   ]);
+  const [waitingAppointments, setWaitingAppointments] = useState([]);
   const [appointmentToReschedule, setAppointmentToReschedule] = useState(null);
   const [isRescheduleDialogOpen, setIsRescheduleDialogOpen] = useState(false);
   const [appointmentHistory, setAppointmentHistory] = useState([
@@ -168,7 +169,7 @@ const AppointmentsPageComponent = () => {
       reason: selectedReason,
     };
 
-    setUpcomingAppointments((prevAppointments) => [
+    setWaitingAppointments((prevAppointments) => [
       ...prevAppointments,
       newAppointment,
     ]);
@@ -188,22 +189,8 @@ const AppointmentsPageComponent = () => {
     setSelectedReason(null);
     setAdditionalNotes("");
 
-    // Switch to the Upcoming tab
-    setActiveTab("upcoming");
-  };
-
-  const handleCancelBooking = () => {
-    // Reset form
-    setDate(new Date());
-    setSelectedTime(null);
-    setSelectedDoctor(null);
-    setSelectedReason(null);
-    setAdditionalNotes("");
-
-    toast({
-      title: "Booking Cancelled",
-      description: "Your appointment booking has been cancelled.",
-    });
+    // Switch to the Waiting tab
+    setActiveTab("waiting");
   };
 
   const handleReschedule = (appointment) => {
@@ -221,13 +208,22 @@ const AppointmentsPageComponent = () => {
       return;
     }
 
+    const updatedAppointment = {
+      ...appointmentToReschedule,
+      date: format(date, "MMMM d, yyyy"),
+      time: selectedTime,
+    };
+
+    // Remove the appointment from upcomingAppointments
     setUpcomingAppointments((appointments) =>
-      appointments.map((apt) =>
-        apt.id === appointmentToReschedule.id
-          ? { ...apt, date: format(date, "MMMM d, yyyy"), time: selectedTime }
-          : apt
-      )
+      appointments.filter((apt) => apt.id !== appointmentToReschedule.id)
     );
+
+    // Add the updated appointment to waitingAppointments
+    setWaitingAppointments((appointments) => [
+      ...appointments,
+      updatedAppointment,
+    ]);
 
     toast({
       title: "Appointment Rescheduled",
@@ -241,10 +237,14 @@ const AppointmentsPageComponent = () => {
     setAppointmentToReschedule(null);
     setDate(new Date());
     setSelectedTime(null);
+    setActiveTab("waiting");
   };
 
   const handleCancel = (appointmentId) => {
     setUpcomingAppointments((appointments) =>
+      appointments.filter((apt) => apt.id !== appointmentId)
+    );
+    setWaitingAppointments((appointments) =>
       appointments.filter((apt) => apt.id !== appointmentId)
     );
 
@@ -261,10 +261,6 @@ const AppointmentsPageComponent = () => {
 
   const today = new Date();
 
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const openDialog = () => setIsDialogOpen(true);
-  const closeDialog = () => setIsDialogOpen(false);
-
   return (
     <div className="w-full max-w-6xl mx-auto">
       <main>
@@ -272,12 +268,18 @@ const AppointmentsPageComponent = () => {
           Appointments
         </h1>
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8 bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+          <TabsList className="grid w-full grid-cols-5 mb-8 bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
             <TabsTrigger
               value="book-new"
               className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-600 data-[state=active]:text-blue-600 dark:data-[state=active]:text-white"
             >
               Book New
+            </TabsTrigger>
+            <TabsTrigger
+              value="waiting"
+              className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-600 data-[state=active]:text-blue-600 dark:data-[state=active]:text-white"
+            >
+              Waiting
             </TabsTrigger>
             <TabsTrigger
               value="upcoming"
@@ -314,7 +316,7 @@ const AppointmentsPageComponent = () => {
                         mode="single"
                         selected={date}
                         onSelect={setDate}
-                        fromDate={today}
+                        fromDate={new Date()}
                         className="rounded-md border-gray-200 dark:border-gray-700"
                       />
                     </div>
@@ -412,58 +414,62 @@ const AppointmentsPageComponent = () => {
                   <Button
                     variant="outline"
                     className="border-gray-200 dark:border-gray-700"
-                    onClick={handleCancelBooking}
                   >
                     Cancel
                   </Button>
-                  {/* <Button onClick={handleConfirmAppointment}> */}
-                  <Button
-                    onClick={() => {
-                      if (
-                        date &&
-                        selectedTime &&
-                        selectedDoctor &&
-                        selectedReason
-                      ) {
-                        openDialog();
-                      } else {
-                        toast({
-                          title: "Error",
-                          description: "Please fill in all required fields.",
-                          variant: "destructive",
-                        });
-                      }
-                    }}
-                  >
+                  <Button onClick={handleConfirmAppointment}>
                     Confirm Appointment
                   </Button>
-                  <AlertDialog
-                    open={isDialogOpen}
-                    onOpenChange={setIsDialogOpen}
-                  >
-                    <AlertDialogContent>
-                      <AlertDialogHeader>
-                        <AlertDialogTitle>
-                          Are you sure you want to book this appointment?
-                        </AlertDialogTitle>
-                        <AlertDialogDescription>
-                          This action cannot be undone. This will permanently
-                          delete your account and remove your data from our
-                          servers.
-                        </AlertDialogDescription>
-                      </AlertDialogHeader>
-                      <AlertDialogFooter>
-                        <AlertDialogCancel onClick={closeDialog}>
-                          Cancel
-                        </AlertDialogCancel>
-                        <AlertDialogAction onClick={handleConfirmAppointment}>
-                          Continue
-                        </AlertDialogAction>
-                      </AlertDialogFooter>
-                    </AlertDialogContent>
-                  </AlertDialog>
                 </CardFooter>
               </Card>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="waiting">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {waitingAppointments.map((appointment) => (
+                <Card
+                  key={appointment.id}
+                  className="hover:shadow-lg transition-shadow duration-300"
+                >
+                  <CardHeader className="bg-yellow-50 dark:bg-gray-700">
+                    <CardTitle className="flex items-center">
+                      <CalendarIcon className="mr-2 h-5 w-5 text-yellow-500" />
+                      {appointment.date}
+                    </CardTitle>
+                    <CardDescription className="flex items-center">
+                      <Clock className="mr-2 h-4 w-4 text-gray-500 dark:text-gray-400" />
+                      {appointment.time}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-4">
+                    <div className="flex items-center mb-2">
+                      <User className="mr-2 h-4 w-4 text-gray-500 dark:text-gray-400" />
+                      <p className="font-semibold text-gray-900 dark:text-white">
+                        {appointment.doctor}
+                      </p>
+                    </div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {appointment.reason}
+                    </p>
+                  </CardContent>
+                  <CardFooter className="flex justify-between">
+                    <Button
+                      variant="outline"
+                      className="border-gray-200 dark:border-gray-700"
+                      onClick={() => handleReschedule(appointment)}
+                    >
+                      Reschedule
+                    </Button>
+                    <Button
+                      variant="destructive"
+                      onClick={() => handleCancel(appointment.id)}
+                    >
+                      Cancel
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
             </div>
           </TabsContent>
 
@@ -776,5 +782,4 @@ const AppointmentsPageComponent = () => {
       </Dialog>
     </div>
   );
-};
-export default AppointmentsPageComponent;
+}
