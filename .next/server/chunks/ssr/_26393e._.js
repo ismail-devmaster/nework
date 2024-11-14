@@ -142,59 +142,6 @@ const Label = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node
 Label.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$label$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.Root.displayName;
 ;
 }}),
-"[project]/components/ui/tabs.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
-"use strict";
-
-var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: require } = __turbopack_context__;
-{
-__turbopack_esm__({
-    "Tabs": (()=>Tabs),
-    "TabsContent": (()=>TabsContent),
-    "TabsList": (()=>TabsList),
-    "TabsTrigger": (()=>TabsTrigger)
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/lib/utils.ts [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@radix-ui/react-tabs/dist/index.mjs [app-ssr] (ecmascript)");
-"use client";
-;
-;
-;
-;
-const Tabs = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.Root;
-const TabsList = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.forwardRef(({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.List, {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/components/ui/tabs.tsx",
-        lineNumber: 14,
-        columnNumber: 3
-    }, this));
-TabsList.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.List.displayName;
-const TabsTrigger = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.forwardRef(({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.Trigger, {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/components/ui/tabs.tsx",
-        lineNumber: 29,
-        columnNumber: 3
-    }, this));
-TabsTrigger.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.Trigger.displayName;
-const TabsContent = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.forwardRef(({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.Content, {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/components/ui/tabs.tsx",
-        lineNumber: 44,
-        columnNumber: 3
-    }, this));
-TabsContent.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.Content.displayName;
-;
-}}),
 "[project]/components/ui/scroll-area.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -691,42 +638,6 @@ const DialogDescription = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$proje
 DialogDescription.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.Description.displayName;
 ;
 }}),
-"[project]/components/ui/switch.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
-"use strict";
-
-var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: require } = __turbopack_context__;
-{
-__turbopack_esm__({
-    "Switch": (()=>Switch)
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/lib/utils.ts [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$switch$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@radix-ui/react-switch/dist/index.mjs [app-ssr] (ecmascript)");
-"use client";
-;
-;
-;
-;
-const Switch = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.forwardRef(({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$switch$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.Root, {
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input", className),
-        ...props,
-        ref: ref,
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$switch$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.Thumb, {
-            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0")
-        }, void 0, false, {
-            fileName: "[project]/components/ui/switch.tsx",
-            lineNumber: 20,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
-        fileName: "[project]/components/ui/switch.tsx",
-        lineNumber: 12,
-        columnNumber: 3
-    }, this));
-Switch.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$switch$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.Root.displayName;
-;
-}}),
 "[project]/app/receptionist/appointments/page.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -747,7 +658,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/dialog.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/plus.js [app-ssr] (ecmascript) <export default as Plus>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/square-pen.js [app-ssr] (ecmascript) <export default as Edit>");
-'use client';
+"use client";
 ;
 ;
 ;
@@ -765,22 +676,25 @@ const ReceptionistAppointments = ()=>{
         {
             id: 1,
             patientName: "Sarah Johnson",
+            doctorName: "Dr. John Smith",
             type: "General Checkup",
-            date: "2023-07-15",
+            date: "2024-11-15",
             time: "14:00"
         },
         {
             id: 2,
             patientName: "Mike Brown",
+            doctorName: "Dr. Sarah Lee",
             type: "Dental Cleaning",
-            date: "2023-07-16",
+            date: "2024-11-17",
             time: "10:00"
         },
         {
             id: 3,
             patientName: "Emily White",
+            doctorName: "Dr. Michael Johnson",
             type: "Annual Physical",
-            date: "2023-07-14",
+            date: "2024-11-30",
             time: "11:00"
         }
     ]);
@@ -810,6 +724,28 @@ const ReceptionistAppointments = ()=>{
             name: "Jane Smith"
         }
     ];
+    const doctors = [
+        {
+            id: 1,
+            name: "Dr. John Smith"
+        },
+        {
+            id: 2,
+            name: "Dr. Sarah Lee"
+        },
+        {
+            id: 3,
+            name: "Dr. Michael Johnson"
+        },
+        {
+            id: 4,
+            name: "Dr. Emily Brown"
+        },
+        {
+            id: 5,
+            name: "Dr. David Wilson"
+        }
+    ];
     const appointmentTypes = [
         "General Checkup",
         "Dental Cleaning",
@@ -822,13 +758,18 @@ const ReceptionistAppointments = ()=>{
             ...appointments,
             {
                 ...newAppointment,
-                id: appointments.length + 1
+                id: appointments.length + 1,
+                doctorName: newAppointment.doctorName
             }
         ]);
         setIsAddingAppointment(false);
     };
     const handleUpdateAppointment = (updatedAppointment)=>{
-        setAppointments(appointments.map((a)=>a.id === updatedAppointment.id ? updatedAppointment : a));
+        setAppointments(appointments.map((a)=>a.id === updatedAppointment.id ? {
+                ...a,
+                ...updatedAppointment,
+                doctorName: updatedAppointment.doctorName
+            } : a));
         setSelectedAppointment(null);
     };
     const handleRemoveAppointment = (id)=>{
@@ -864,8 +805,8 @@ const ReceptionistAppointments = ()=>{
                 children: "Appointment Management"
             }, void 0, false, {
                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                lineNumber: 88,
-                columnNumber: 9
+                lineNumber: 174,
+                columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
                 className: "mb-8",
@@ -876,21 +817,21 @@ const ReceptionistAppointments = ()=>{
                                 children: "Appointment Management"
                             }, void 0, false, {
                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                lineNumber: 93,
-                                columnNumber: 13
+                                lineNumber: 179,
+                                columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardDescription"], {
                                 children: "Schedule, reschedule, or cancel appointments"
                             }, void 0, false, {
                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                lineNumber: 94,
-                                columnNumber: 13
+                                lineNumber: 180,
+                                columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                        lineNumber: 92,
-                        columnNumber: 11
+                        lineNumber: 178,
+                        columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
                         children: [
@@ -907,8 +848,8 @@ const ReceptionistAppointments = ()=>{
                                                 onChange: (e)=>setSearchTerm(e.target.value)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                lineNumber: 99,
-                                                columnNumber: 17
+                                                lineNumber: 187,
+                                                columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
                                                 value: filterPeriod,
@@ -920,13 +861,13 @@ const ReceptionistAppointments = ()=>{
                                                             placeholder: "Filter by period"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                            lineNumber: 107,
-                                                            columnNumber: 21
+                                                            lineNumber: 195,
+                                                            columnNumber: 19
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                        lineNumber: 106,
-                                                        columnNumber: 19
+                                                        lineNumber: 194,
+                                                        columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
                                                         children: [
@@ -935,50 +876,50 @@ const ReceptionistAppointments = ()=>{
                                                                 children: "All"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                lineNumber: 110,
-                                                                columnNumber: 21
+                                                                lineNumber: 198,
+                                                                columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                 value: "today",
                                                                 children: "Today"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                lineNumber: 111,
-                                                                columnNumber: 21
+                                                                lineNumber: 199,
+                                                                columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                 value: "this-week",
                                                                 children: "This Week"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                lineNumber: 112,
-                                                                columnNumber: 21
+                                                                lineNumber: 200,
+                                                                columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                 value: "this-month",
                                                                 children: "This Month"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                lineNumber: 113,
-                                                                columnNumber: 21
+                                                                lineNumber: 201,
+                                                                columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                        lineNumber: 109,
-                                                        columnNumber: 19
+                                                        lineNumber: 197,
+                                                        columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                lineNumber: 105,
-                                                columnNumber: 17
+                                                lineNumber: 193,
+                                                columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                        lineNumber: 98,
-                                        columnNumber: 15
+                                        lineNumber: 186,
+                                        columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dialog"], {
                                         open: isAddingAppointment,
@@ -993,20 +934,20 @@ const ReceptionistAppointments = ()=>{
                                                             className: "mr-2 h-4 w-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                            lineNumber: 120,
-                                                            columnNumber: 21
+                                                            lineNumber: 211,
+                                                            columnNumber: 19
                                                         }, this),
                                                         " Schedule New Appointment"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                    lineNumber: 119,
-                                                    columnNumber: 19
+                                                    lineNumber: 210,
+                                                    columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                lineNumber: 118,
-                                                columnNumber: 17
+                                                lineNumber: 209,
+                                                columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogContent"], {
                                                 children: [
@@ -1016,21 +957,21 @@ const ReceptionistAppointments = ()=>{
                                                                 children: "Schedule New Appointment"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                lineNumber: 125,
-                                                                columnNumber: 21
+                                                                lineNumber: 216,
+                                                                columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogDescription"], {
                                                                 children: "Enter the appointment details below."
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                lineNumber: 126,
-                                                                columnNumber: 21
+                                                                lineNumber: 217,
+                                                                columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                        lineNumber: 124,
-                                                        columnNumber: 19
+                                                        lineNumber: 215,
+                                                        columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                                                         onSubmit: (e)=>{
@@ -1051,8 +992,8 @@ const ReceptionistAppointments = ()=>{
                                                                                 children: "Patient Name"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                lineNumber: 137,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 230,
+                                                                                columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
                                                                                 name: "patientName",
@@ -1064,13 +1005,13 @@ const ReceptionistAppointments = ()=>{
                                                                                             placeholder: "Select a patient"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                            lineNumber: 142,
-                                                                                            columnNumber: 29
+                                                                                            lineNumber: 235,
+                                                                                            columnNumber: 27
                                                                                         }, this)
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                        lineNumber: 141,
-                                                                                        columnNumber: 27
+                                                                                        lineNumber: 234,
+                                                                                        columnNumber: 25
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
                                                                                         children: patients.map((patient)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1078,25 +1019,81 @@ const ReceptionistAppointments = ()=>{
                                                                                                 children: patient.name
                                                                                             }, patient.id, false, {
                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                lineNumber: 146,
-                                                                                                columnNumber: 31
+                                                                                                lineNumber: 239,
+                                                                                                columnNumber: 29
                                                                                             }, this))
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                        lineNumber: 144,
-                                                                                        columnNumber: 27
+                                                                                        lineNumber: 237,
+                                                                                        columnNumber: 25
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                lineNumber: 140,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 233,
+                                                                                columnNumber: 23
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                        lineNumber: 136,
-                                                                        columnNumber: 23
+                                                                        lineNumber: 229,
+                                                                        columnNumber: 21
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "grid grid-cols-4 items-center gap-4",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
+                                                                                htmlFor: "doctorName",
+                                                                                className: "text-right",
+                                                                                children: "Doctor Name"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/app/receptionist/appointments/page.tsx",
+                                                                                lineNumber: 247,
+                                                                                columnNumber: 23
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
+                                                                                name: "doctorName",
+                                                                                required: true,
+                                                                                children: [
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectTrigger"], {
+                                                                                        className: "col-span-3",
+                                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {
+                                                                                            placeholder: "Select a doctor"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/receptionist/appointments/page.tsx",
+                                                                                            lineNumber: 252,
+                                                                                            columnNumber: 27
+                                                                                        }, this)
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/app/receptionist/appointments/page.tsx",
+                                                                                        lineNumber: 251,
+                                                                                        columnNumber: 25
+                                                                                    }, this),
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
+                                                                                        children: doctors.map((doctor)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                                                value: doctor.name,
+                                                                                                children: doctor.name
+                                                                                            }, doctor.id, false, {
+                                                                                                fileName: "[project]/app/receptionist/appointments/page.tsx",
+                                                                                                lineNumber: 256,
+                                                                                                columnNumber: 29
+                                                                                            }, this))
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/app/receptionist/appointments/page.tsx",
+                                                                                        lineNumber: 254,
+                                                                                        columnNumber: 25
+                                                                                    }, this)
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/app/receptionist/appointments/page.tsx",
+                                                                                lineNumber: 250,
+                                                                                columnNumber: 23
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/app/receptionist/appointments/page.tsx",
+                                                                        lineNumber: 246,
+                                                                        columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         className: "grid grid-cols-4 items-center gap-4",
@@ -1107,8 +1104,8 @@ const ReceptionistAppointments = ()=>{
                                                                                 children: "Appointment Type"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                lineNumber: 154,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 264,
+                                                                                columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
                                                                                 name: "type",
@@ -1120,13 +1117,13 @@ const ReceptionistAppointments = ()=>{
                                                                                             placeholder: "Select appointment type"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                            lineNumber: 159,
-                                                                                            columnNumber: 29
+                                                                                            lineNumber: 269,
+                                                                                            columnNumber: 27
                                                                                         }, this)
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                        lineNumber: 158,
-                                                                                        columnNumber: 27
+                                                                                        lineNumber: 268,
+                                                                                        columnNumber: 25
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
                                                                                         children: appointmentTypes.map((type)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1134,25 +1131,25 @@ const ReceptionistAppointments = ()=>{
                                                                                                 children: type
                                                                                             }, type, false, {
                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                lineNumber: 163,
-                                                                                                columnNumber: 31
+                                                                                                lineNumber: 273,
+                                                                                                columnNumber: 29
                                                                                             }, this))
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                        lineNumber: 161,
-                                                                                        columnNumber: 27
+                                                                                        lineNumber: 271,
+                                                                                        columnNumber: 25
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                lineNumber: 157,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 267,
+                                                                                columnNumber: 23
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                        lineNumber: 153,
-                                                                        columnNumber: 23
+                                                                        lineNumber: 263,
+                                                                        columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         className: "grid grid-cols-4 items-center gap-4",
@@ -1163,8 +1160,8 @@ const ReceptionistAppointments = ()=>{
                                                                                 children: "Date"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                lineNumber: 171,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 281,
+                                                                                columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                                                                 id: "date",
@@ -1175,14 +1172,14 @@ const ReceptionistAppointments = ()=>{
                                                                                 min: formattedToday
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                lineNumber: 174,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 284,
+                                                                                columnNumber: 23
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                        lineNumber: 170,
-                                                                        columnNumber: 23
+                                                                        lineNumber: 280,
+                                                                        columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         className: "grid grid-cols-4 items-center gap-4",
@@ -1193,8 +1190,8 @@ const ReceptionistAppointments = ()=>{
                                                                                 children: "Time"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                lineNumber: 184,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 294,
+                                                                                columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                                                                 id: "time",
@@ -1204,20 +1201,20 @@ const ReceptionistAppointments = ()=>{
                                                                                 required: true
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                lineNumber: 187,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 297,
+                                                                                columnNumber: 23
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                        lineNumber: 183,
-                                                                        columnNumber: 23
+                                                                        lineNumber: 293,
+                                                                        columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                lineNumber: 135,
-                                                                columnNumber: 21
+                                                                lineNumber: 228,
+                                                                columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogFooter"], {
                                                                 children: [
@@ -1228,46 +1225,46 @@ const ReceptionistAppointments = ()=>{
                                                                         children: "Cancel"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                        lineNumber: 191,
-                                                                        columnNumber: 23
+                                                                        lineNumber: 307,
+                                                                        columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                                                         type: "submit",
                                                                         children: "Schedule Appointment"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                        lineNumber: 194,
-                                                                        columnNumber: 23
+                                                                        lineNumber: 314,
+                                                                        columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                lineNumber: 190,
-                                                                columnNumber: 21
+                                                                lineNumber: 306,
+                                                                columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                        lineNumber: 128,
-                                                        columnNumber: 19
+                                                        lineNumber: 221,
+                                                        columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                lineNumber: 123,
-                                                columnNumber: 17
+                                                lineNumber: 214,
+                                                columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                        lineNumber: 117,
-                                        columnNumber: 15
+                                        lineNumber: 205,
+                                        columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                lineNumber: 97,
-                                columnNumber: 13
+                                lineNumber: 185,
+                                columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$scroll$2d$area$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ScrollArea"], {
                                 className: "h-[400px]",
@@ -1280,40 +1277,47 @@ const ReceptionistAppointments = ()=>{
                                                         children: "Patient Name"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                        lineNumber: 204,
-                                                        columnNumber: 21
+                                                        lineNumber: 324,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
+                                                        children: "Doctor Name"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/receptionist/appointments/page.tsx",
+                                                        lineNumber: 325,
+                                                        columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
                                                         children: "Type"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                        lineNumber: 205,
-                                                        columnNumber: 21
+                                                        lineNumber: 326,
+                                                        columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
                                                         children: "Date & Time"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                        lineNumber: 206,
-                                                        columnNumber: 21
+                                                        lineNumber: 327,
+                                                        columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
                                                         children: "Actions"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                        lineNumber: 207,
-                                                        columnNumber: 21
+                                                        lineNumber: 328,
+                                                        columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                lineNumber: 203,
-                                                columnNumber: 19
+                                                lineNumber: 323,
+                                                columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                            lineNumber: 202,
-                                            columnNumber: 17
+                                            lineNumber: 322,
+                                            columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableBody"], {
                                             children: filteredAppointments.map((appointment)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableRow"], {
@@ -1322,22 +1326,29 @@ const ReceptionistAppointments = ()=>{
                                                             children: appointment.patientName
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                            lineNumber: 213,
-                                                            columnNumber: 23
+                                                            lineNumber: 334,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                            children: appointment.doctorName
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/receptionist/appointments/page.tsx",
+                                                            lineNumber: 335,
+                                                            columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
                                                             children: appointment.type
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                            lineNumber: 214,
-                                                            columnNumber: 23
+                                                            lineNumber: 336,
+                                                            columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
                                                             children: `${appointment.date} ${appointment.time}`
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                            lineNumber: 215,
-                                                            columnNumber: 23
+                                                            lineNumber: 337,
+                                                            columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1356,20 +1367,20 @@ const ReceptionistAppointments = ()=>{
                                                                                             className: "mr-2 h-4 w-4"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                            lineNumber: 221,
-                                                                                            columnNumber: 33
+                                                                                            lineNumber: 349,
+                                                                                            columnNumber: 31
                                                                                         }, this),
                                                                                         " Edit"
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                    lineNumber: 220,
-                                                                                    columnNumber: 31
+                                                                                    lineNumber: 342,
+                                                                                    columnNumber: 29
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                lineNumber: 219,
-                                                                                columnNumber: 29
+                                                                                lineNumber: 341,
+                                                                                columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogContent"], {
                                                                                 children: [
@@ -1379,21 +1390,21 @@ const ReceptionistAppointments = ()=>{
                                                                                                 children: "Edit Appointment"
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                lineNumber: 226,
-                                                                                                columnNumber: 33
+                                                                                                lineNumber: 354,
+                                                                                                columnNumber: 31
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogDescription"], {
                                                                                                 children: "Update the appointment details below."
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                lineNumber: 227,
-                                                                                                columnNumber: 33
+                                                                                                lineNumber: 355,
+                                                                                                columnNumber: 31
                                                                                             }, this)
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                        lineNumber: 225,
-                                                                                        columnNumber: 31
+                                                                                        lineNumber: 353,
+                                                                                        columnNumber: 29
                                                                                     }, this),
                                                                                     selectedAppointment && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                                                                                         onSubmit: (e)=>{
@@ -1412,57 +1423,57 @@ const ReceptionistAppointments = ()=>{
                                                                                                         className: "grid grid-cols-4 items-center gap-4",
                                                                                                         children: [
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
-                                                                                                                htmlFor: "edit-patientName",
+                                                                                                                htmlFor: "edit-doctorName",
                                                                                                                 className: "text-right",
-                                                                                                                children: "Patient Name"
+                                                                                                                children: "Doctor Name"
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                lineNumber: 242,
-                                                                                                                columnNumber: 39
+                                                                                                                lineNumber: 372,
+                                                                                                                columnNumber: 37
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
-                                                                                                                name: "patientName",
-                                                                                                                defaultValue: selectedAppointment.patientName,
+                                                                                                                name: "doctorName",
+                                                                                                                defaultValue: selectedAppointment.doctorName,
                                                                                                                 children: [
                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectTrigger"], {
                                                                                                                         className: "col-span-3",
                                                                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {
-                                                                                                                            placeholder: "Select a patient"
+                                                                                                                            placeholder: "Select a doctor"
                                                                                                                         }, void 0, false, {
                                                                                                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                            lineNumber: 247,
-                                                                                                                            columnNumber: 43
+                                                                                                                            lineNumber: 385,
+                                                                                                                            columnNumber: 41
                                                                                                                         }, this)
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                        lineNumber: 246,
-                                                                                                                        columnNumber: 41
+                                                                                                                        lineNumber: 384,
+                                                                                                                        columnNumber: 39
                                                                                                                     }, this),
                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
-                                                                                                                        children: patients.map((patient)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                                                                                                                value: patient.name,
-                                                                                                                                children: patient.name
-                                                                                                                            }, patient.id, false, {
+                                                                                                                        children: doctors.map((doctor)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                                                                                value: doctor.name,
+                                                                                                                                children: doctor.name
+                                                                                                                            }, doctor.id, false, {
                                                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                                lineNumber: 251,
-                                                                                                                                columnNumber: 45
+                                                                                                                                lineNumber: 389,
+                                                                                                                                columnNumber: 43
                                                                                                                             }, this))
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                        lineNumber: 249,
-                                                                                                                        columnNumber: 41
+                                                                                                                        lineNumber: 387,
+                                                                                                                        columnNumber: 39
                                                                                                                     }, this)
                                                                                                                 ]
                                                                                                             }, void 0, true, {
                                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                lineNumber: 245,
-                                                                                                                columnNumber: 39
+                                                                                                                lineNumber: 378,
+                                                                                                                columnNumber: 37
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                        lineNumber: 241,
-                                                                                                        columnNumber: 37
+                                                                                                        lineNumber: 371,
+                                                                                                        columnNumber: 35
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                         className: "grid grid-cols-4 items-center gap-4",
@@ -1473,8 +1484,8 @@ const ReceptionistAppointments = ()=>{
                                                                                                                 children: "Appointment Type"
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                lineNumber: 259,
-                                                                                                                columnNumber: 39
+                                                                                                                lineNumber: 400,
+                                                                                                                columnNumber: 37
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
                                                                                                                 name: "type",
@@ -1486,13 +1497,13 @@ const ReceptionistAppointments = ()=>{
                                                                                                                             placeholder: "Select appointment type"
                                                                                                                         }, void 0, false, {
                                                                                                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                            lineNumber: 264,
-                                                                                                                            columnNumber: 43
+                                                                                                                            lineNumber: 411,
+                                                                                                                            columnNumber: 41
                                                                                                                         }, this)
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                        lineNumber: 263,
-                                                                                                                        columnNumber: 41
+                                                                                                                        lineNumber: 410,
+                                                                                                                        columnNumber: 39
                                                                                                                     }, this),
                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
                                                                                                                         children: appointmentTypes.map((type)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1500,25 +1511,25 @@ const ReceptionistAppointments = ()=>{
                                                                                                                                 children: type
                                                                                                                             }, type, false, {
                                                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                                lineNumber: 268,
-                                                                                                                                columnNumber: 45
+                                                                                                                                lineNumber: 415,
+                                                                                                                                columnNumber: 43
                                                                                                                             }, this))
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                        lineNumber: 266,
-                                                                                                                        columnNumber: 41
+                                                                                                                        lineNumber: 413,
+                                                                                                                        columnNumber: 39
                                                                                                                     }, this)
                                                                                                                 ]
                                                                                                             }, void 0, true, {
                                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                lineNumber: 262,
-                                                                                                                columnNumber: 39
+                                                                                                                lineNumber: 406,
+                                                                                                                columnNumber: 37
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                        lineNumber: 258,
-                                                                                                        columnNumber: 37
+                                                                                                        lineNumber: 399,
+                                                                                                        columnNumber: 35
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                         className: "grid grid-cols-4 items-center gap-4",
@@ -1529,8 +1540,8 @@ const ReceptionistAppointments = ()=>{
                                                                                                                 children: "Date"
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                lineNumber: 276,
-                                                                                                                columnNumber: 39
+                                                                                                                lineNumber: 423,
+                                                                                                                columnNumber: 37
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                                                                                                 id: "edit-date",
@@ -1540,14 +1551,14 @@ const ReceptionistAppointments = ()=>{
                                                                                                                 className: "col-span-3"
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                lineNumber: 279,
-                                                                                                                columnNumber: 39
+                                                                                                                lineNumber: 429,
+                                                                                                                columnNumber: 37
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                        lineNumber: 275,
-                                                                                                        columnNumber: 37
+                                                                                                        lineNumber: 422,
+                                                                                                        columnNumber: 35
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                         className: "grid grid-cols-4 items-center gap-4",
@@ -1558,8 +1569,8 @@ const ReceptionistAppointments = ()=>{
                                                                                                                 children: "Time"
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                lineNumber: 288,
-                                                                                                                columnNumber: 39
+                                                                                                                lineNumber: 438,
+                                                                                                                columnNumber: 37
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                                                                                                 id: "edit-time",
@@ -1569,20 +1580,20 @@ const ReceptionistAppointments = ()=>{
                                                                                                                 className: "col-span-3"
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                                lineNumber: 291,
-                                                                                                                columnNumber: 39
+                                                                                                                lineNumber: 444,
+                                                                                                                columnNumber: 37
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                        lineNumber: 287,
-                                                                                                        columnNumber: 37
+                                                                                                        lineNumber: 437,
+                                                                                                        columnNumber: 35
                                                                                                     }, this)
                                                                                                 ]
                                                                                             }, void 0, true, {
                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                lineNumber: 240,
-                                                                                                columnNumber: 35
+                                                                                                lineNumber: 370,
+                                                                                                columnNumber: 33
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogFooter"], {
                                                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1590,31 +1601,31 @@ const ReceptionistAppointments = ()=>{
                                                                                                     children: "Update Appointment"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                    lineNumber: 301,
-                                                                                                    columnNumber: 37
+                                                                                                    lineNumber: 454,
+                                                                                                    columnNumber: 35
                                                                                                 }, this)
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                                lineNumber: 300,
-                                                                                                columnNumber: 35
+                                                                                                lineNumber: 453,
+                                                                                                columnNumber: 33
                                                                                             }, this)
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                        lineNumber: 230,
-                                                                                        columnNumber: 33
+                                                                                        lineNumber: 360,
+                                                                                        columnNumber: 31
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                                lineNumber: 224,
-                                                                                columnNumber: 29
+                                                                                lineNumber: 352,
+                                                                                columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                        lineNumber: 218,
-                                                                        columnNumber: 27
+                                                                        lineNumber: 340,
+                                                                        columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                                                         variant: "destructive",
@@ -1623,59 +1634,59 @@ const ReceptionistAppointments = ()=>{
                                                                         children: "Remove"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                        lineNumber: 307,
-                                                                        columnNumber: 27
+                                                                        lineNumber: 462,
+                                                                        columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                                lineNumber: 217,
-                                                                columnNumber: 25
+                                                                lineNumber: 339,
+                                                                columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                            lineNumber: 216,
-                                                            columnNumber: 23
+                                                            lineNumber: 338,
+                                                            columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, appointment.id, true, {
                                                     fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                                    lineNumber: 212,
-                                                    columnNumber: 21
+                                                    lineNumber: 333,
+                                                    columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                            lineNumber: 210,
-                                            columnNumber: 17
+                                            lineNumber: 331,
+                                            columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                    lineNumber: 201,
-                                    columnNumber: 15
+                                    lineNumber: 321,
+                                    columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                                lineNumber: 200,
-                                columnNumber: 13
+                                lineNumber: 320,
+                                columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/receptionist/appointments/page.tsx",
-                        lineNumber: 96,
-                        columnNumber: 11
+                        lineNumber: 184,
+                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/receptionist/appointments/page.tsx",
-                lineNumber: 91,
-                columnNumber: 9
+                lineNumber: 177,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/receptionist/appointments/page.tsx",
-        lineNumber: 87,
-        columnNumber: 7
+        lineNumber: 173,
+        columnNumber: 5
     }, this);
 };
 const __TURBOPACK__default__export__ = ReceptionistAppointments;
@@ -1688,4 +1699,4 @@ var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_
 
 };
 
-//# sourceMappingURL=_592100._.js.map
+//# sourceMappingURL=_26393e._.js.map
