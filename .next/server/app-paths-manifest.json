@@ -1,6 +1,14 @@
 {
+  "/page": "app/page.js",
+  "/receptionist/page": "app/receptionist/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/receptionist/newAppointments/page": "app/receptionist/newAppointments/page.js",
+  "/receptionist/appointments/page": "app/receptionist/appointments/page.js",
+  "/receptionist/patients/page": "app/receptionist/patients/page.js",
+  "/patient/page": "app/patient/page.js",
+  "/patient/profile/page": "app/patient/profile/page.js",
+  "/receptionist/doctor/page": "app/receptionist/doctor/page.js",
   "/patient/appointments/page": "app/patient/appointments/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/patient/profile/page": "app/patient/profile/page.js"
+  "/receptionist/lobby/page": "app/receptionist/lobby/page.js"
 }
