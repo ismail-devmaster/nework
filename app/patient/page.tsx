@@ -28,7 +28,7 @@ import { Textarea } from "@/components/ui/textarea";
 interface PageProps {
   isNewPatient?: boolean
 }
-const page =({ isNewPatient = false }: { isNewPatient?: boolean }) => {
+const Page =({ isNewPatient = false }: { isNewPatient?: boolean }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   return (
     <div className="w-full max-w-6xl mx-auto">
@@ -271,4 +271,4 @@ const page =({ isNewPatient = false }: { isNewPatient?: boolean }) => {
   );
 };
 
-export default page;
+export default Page;
