@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Card,
@@ -12,7 +13,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Plus } from "lucide-react";
-import { format } from "date-fns";
+// Fixed date-fns import
+import { format as formatDate } from 'date-fns';  // Changed this line
 
 interface Message {
   id: number;
@@ -26,7 +28,7 @@ interface MessagesProps {
   messages: Message[];
 }
 
-export default function Messages({ messages }: MessagesProps) {
+export default function Messages({ messages = [] }: MessagesProps) {
   return (
     <Card>
       <CardHeader>
@@ -56,7 +58,7 @@ export default function Messages({ messages }: MessagesProps) {
                   {message.content}
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  {format(new Date(message.timestamp), "PPpp")}
+                  {formatDate(new Date(message.timestamp), "PPpp")}  {/* Changed this line */}
                 </p>
               </div>
               {!message.read && <Badge variant="secondary">New</Badge>}
