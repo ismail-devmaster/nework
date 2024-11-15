@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { format } from "date-fns";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   User,
@@ -28,6 +29,7 @@ import { Textarea } from "@/components/ui/textarea";
 interface PageProps {
   isNewPatient?: boolean
 }
+
 const Page =() => {
   const [isNewPatient, setIsNewPatient] = useState(false);  // Move isNewPatient to state
   const [isDialogOpen, setIsDialogOpen] = useState(false);
