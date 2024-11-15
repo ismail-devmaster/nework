@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import { format as formatDate } from 'date-fns'; // Correct import
 import {
   Card,
   CardContent,
@@ -12,7 +14,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Plus } from "lucide-react";
-import { format } from "date-fns";
 
 interface Message {
   id: number;
@@ -26,7 +27,9 @@ interface MessagesProps {
   messages: Message[];
 }
 
-export default function Messages({ messages }: MessagesProps) {
+export default function Messages({ messages = [] }: MessagesProps) {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date()); // Ensure `selectedDate` is defined
+
   return (
     <Card>
       <CardHeader>
@@ -56,7 +59,7 @@ export default function Messages({ messages }: MessagesProps) {
                   {message.content}
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  {format(new Date(message.timestamp), "PPpp")}
+                  {selectedDate ? formatDate(new Date(message.timestamp), "PPpp") : "N/A"}
                 </p>
               </div>
               {!message.read && <Badge variant="secondary">New</Badge>}
