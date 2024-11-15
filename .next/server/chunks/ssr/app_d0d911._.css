@@ -1025,6 +1025,10 @@ body {
   width: 140px;
 }
 
+.w-\[180px\] {
+  width: 180px;
+}
+
 .w-\[1px\] {
   width: 1px;
 }
@@ -1043,10 +1047,6 @@ body {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[180px\] {
-  width: 180px;
 }
 
 .min-w-0 {
@@ -1093,12 +1093,20 @@ body {
   max-width: 24rem;
 }
 
+.max-w-3xl {
+  max-width: 48rem;
+}
+
 .flex-1 {
   flex: 1;
 }
 
 .shrink-0 {
   flex-shrink: 0;
+}
+
+.flex-grow {
+  flex-grow: 1;
 }
 
 .caption-bottom {
@@ -1702,6 +1710,10 @@ body {
 
 .pl-2 {
   padding-left: .5rem;
+}
+
+.pl-5 {
+  padding-left: 1.25rem;
 }
 
 .pl-8 {

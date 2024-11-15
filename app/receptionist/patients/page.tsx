@@ -40,7 +40,6 @@ import {
 } from "@/components/ui/dialog";
 
 const ReceptionistPatient = () => {
-  // export function ReceptionistPatient() {
   const [patients, setPatients] = React.useState([
     {
       id: 1,
@@ -88,6 +87,8 @@ const ReceptionistPatient = () => {
   const [selectedPatient, setSelectedPatient] = React.useState(null);
   const [isAddingPatient, setIsAddingPatient] = React.useState(false);
   const [searchTerm, setSearchTerm] = React.useState("");
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = React.useState(false);
+  const [patientToDelete, setPatientToDelete] = React.useState(null);
 
   const filteredPatients = patients.filter(
     (patient) =>
@@ -109,6 +110,8 @@ const ReceptionistPatient = () => {
 
   const handleDeletePatient = (id) => {
     setPatients(patients.filter((p) => p.id !== id));
+    setIsDeleteDialogOpen(false);
+    setPatientToDelete(null);
   };
 
   return (
@@ -488,13 +491,49 @@ const ReceptionistPatient = () => {
                           )}
                         </DialogContent>
                       </Dialog>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleDeletePatient(patient.id)}
+                      <Dialog
+                        open={isDeleteDialogOpen}
+                        onOpenChange={setIsDeleteDialogOpen}
                       >
-                        <Trash2 className="mr-2 h-4 w-4" /> Delete
-                      </Button>
+                        <DialogTrigger asChild>
+                          <Button
+                            variant="destructive"
+                            size="sm"
+                            onClick={() => {
+                              setPatientToDelete(patient);
+                              setIsDeleteDialogOpen(true);
+                            }}
+                          >
+                            <Trash2 className="mr-2 h-4 w-4" /> Delete
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader>
+                            <DialogTitle>Confirm Deletion</DialogTitle>
+                            <DialogDescription>
+                              Are you sure you want to delete this
+                              patient&apos;s record? This action cannot be
+                              undone.
+                            </DialogDescription>
+                          </DialogHeader>
+                          <DialogFooter>
+                            <Button
+                              variant="outline"
+                              onClick={() => setIsDeleteDialogOpen(false)}
+                            >
+                              Cancel
+                            </Button>
+                            <Button
+                              variant="destructive"
+                              onClick={() =>
+                                handleDeletePatient(patientToDelete.id)
+                              }
+                            >
+                              Confirm
+                            </Button>
+                          </DialogFooter>
+                        </DialogContent>
+                      </Dialog>
                     </div>
                   </TableCell>
                 </TableRow>
@@ -506,4 +545,5 @@ const ReceptionistPatient = () => {
     </div>
   );
 };
+
 export default ReceptionistPatient;

@@ -788,7 +788,6 @@ var _s = __turbopack_refresh__.signature();
 ;
 const ReceptionistPatient = ()=>{
     _s();
-    // export function ReceptionistPatient() {
     const [patients, setPatients] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.useState([
         {
             id: 1,
@@ -841,6 +840,8 @@ const ReceptionistPatient = ()=>{
     const [selectedPatient, setSelectedPatient] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.useState(null);
     const [isAddingPatient, setIsAddingPatient] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.useState(false);
     const [searchTerm, setSearchTerm] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.useState("");
+    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.useState(false);
+    const [patientToDelete, setPatientToDelete] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.useState(null);
     const filteredPatients = patients.filter((patient)=>patient.name.toLowerCase().includes(searchTerm.toLowerCase()) || patient.contact.toLowerCase().includes(searchTerm.toLowerCase()));
     const handleAddPatient = (newPatient)=>{
         setPatients([
@@ -858,6 +859,8 @@ const ReceptionistPatient = ()=>{
     };
     const handleDeletePatient = (id)=>{
         setPatients(patients.filter((p)=>p.id !== id));
+        setIsDeleteDialogOpen(false);
+        setPatientToDelete(null);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "w-full max-w-6xl mx-auto",
@@ -867,7 +870,7 @@ const ReceptionistPatient = ()=>{
                 children: "Patient Management"
             }, void 0, false, {
                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                lineNumber: 116,
+                lineNumber: 119,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -879,20 +882,20 @@ const ReceptionistPatient = ()=>{
                                 children: "Patient Management"
                             }, void 0, false, {
                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                lineNumber: 121,
+                                lineNumber: 124,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
                                 children: "View, add, or update patient information"
                             }, void 0, false, {
                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                lineNumber: 122,
+                                lineNumber: 125,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                        lineNumber: 120,
+                        lineNumber: 123,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -908,7 +911,7 @@ const ReceptionistPatient = ()=>{
                                                 children: "Search Patients"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                lineNumber: 129,
+                                                lineNumber: 132,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -918,7 +921,7 @@ const ReceptionistPatient = ()=>{
                                                         className: "absolute left-2 top-2.5 h-4 w-4 text-muted-foreground"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                        lineNumber: 131,
+                                                        lineNumber: 134,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -929,19 +932,19 @@ const ReceptionistPatient = ()=>{
                                                         onChange: (e)=>setSearchTerm(e.target.value)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                        lineNumber: 132,
+                                                        lineNumber: 135,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                lineNumber: 130,
+                                                lineNumber: 133,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                        lineNumber: 128,
+                                        lineNumber: 131,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -957,19 +960,19 @@ const ReceptionistPatient = ()=>{
                                                             className: "mr-2 h-4 w-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                            lineNumber: 144,
+                                                            lineNumber: 147,
                                                             columnNumber: 19
                                                         }, this),
                                                         " Add New Patient"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                    lineNumber: 143,
+                                                    lineNumber: 146,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                lineNumber: 142,
+                                                lineNumber: 145,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -981,20 +984,20 @@ const ReceptionistPatient = ()=>{
                                                                 children: "Add New Patient"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                lineNumber: 149,
+                                                                lineNumber: 152,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogDescription"], {
                                                                 children: "Enter the new patient's information below."
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                lineNumber: 150,
+                                                                lineNumber: 153,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                        lineNumber: 148,
+                                                        lineNumber: 151,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -1033,7 +1036,7 @@ const ReceptionistPatient = ()=>{
                                                                                         children: "Name"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 180,
+                                                                                        lineNumber: 183,
                                                                                         columnNumber: 25
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1042,13 +1045,13 @@ const ReceptionistPatient = ()=>{
                                                                                         required: true
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 181,
+                                                                                        lineNumber: 184,
                                                                                         columnNumber: 25
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                lineNumber: 179,
+                                                                                lineNumber: 182,
                                                                                 columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1058,7 +1061,7 @@ const ReceptionistPatient = ()=>{
                                                                                         children: "Contact"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 184,
+                                                                                        lineNumber: 187,
                                                                                         columnNumber: 25
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1068,24 +1071,24 @@ const ReceptionistPatient = ()=>{
                                                                                         required: true
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 185,
+                                                                                        lineNumber: 188,
                                                                                         columnNumber: 25
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                lineNumber: 183,
+                                                                                lineNumber: 186,
                                                                                 columnNumber: 23
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                        lineNumber: 178,
+                                                                        lineNumber: 181,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$separator$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Separator"], {}, void 0, false, {
                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                        lineNumber: 193,
+                                                                        lineNumber: 196,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -1093,7 +1096,7 @@ const ReceptionistPatient = ()=>{
                                                                         children: "Medical History"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                        lineNumber: 194,
+                                                                        lineNumber: 197,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1106,7 +1109,7 @@ const ReceptionistPatient = ()=>{
                                                                                         children: "Condition"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 197,
+                                                                                        lineNumber: 200,
                                                                                         columnNumber: 25
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1114,13 +1117,13 @@ const ReceptionistPatient = ()=>{
                                                                                         name: "condition"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 198,
+                                                                                        lineNumber: 201,
                                                                                         columnNumber: 25
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                lineNumber: 196,
+                                                                                lineNumber: 199,
                                                                                 columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1130,7 +1133,7 @@ const ReceptionistPatient = ()=>{
                                                                                         children: "Diagnosis Date"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 201,
+                                                                                        lineNumber: 204,
                                                                                         columnNumber: 25
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1139,13 +1142,13 @@ const ReceptionistPatient = ()=>{
                                                                                         type: "date"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 202,
+                                                                                        lineNumber: 205,
                                                                                         columnNumber: 25
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                lineNumber: 200,
+                                                                                lineNumber: 203,
                                                                                 columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1155,7 +1158,7 @@ const ReceptionistPatient = ()=>{
                                                                                         children: "Medications"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 209,
+                                                                                        lineNumber: 212,
                                                                                         columnNumber: 25
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1163,24 +1166,24 @@ const ReceptionistPatient = ()=>{
                                                                                         name: "medications"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 210,
+                                                                                        lineNumber: 213,
                                                                                         columnNumber: 25
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                lineNumber: 208,
+                                                                                lineNumber: 211,
                                                                                 columnNumber: 23
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                        lineNumber: 195,
+                                                                        lineNumber: 198,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$separator$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Separator"], {}, void 0, false, {
                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                        lineNumber: 213,
+                                                                        lineNumber: 216,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -1188,7 +1191,7 @@ const ReceptionistPatient = ()=>{
                                                                         children: "Appointment Preferences"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                        lineNumber: 214,
+                                                                        lineNumber: 217,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1201,7 +1204,7 @@ const ReceptionistPatient = ()=>{
                                                                                         children: "Preferred Days"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 217,
+                                                                                        lineNumber: 220,
                                                                                         columnNumber: 25
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1213,12 +1216,12 @@ const ReceptionistPatient = ()=>{
                                                                                                     placeholder: "Select days"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                    lineNumber: 220,
+                                                                                                    lineNumber: 223,
                                                                                                     columnNumber: 29
                                                                                                 }, this)
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                lineNumber: 219,
+                                                                                                lineNumber: 222,
                                                                                                 columnNumber: 27
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1233,24 +1236,24 @@ const ReceptionistPatient = ()=>{
                                                                                                         children: day
                                                                                                     }, day, false, {
                                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                        lineNumber: 230,
+                                                                                                        lineNumber: 233,
                                                                                                         columnNumber: 31
                                                                                                     }, this))
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                lineNumber: 222,
+                                                                                                lineNumber: 225,
                                                                                                 columnNumber: 27
                                                                                             }, this)
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 218,
+                                                                                        lineNumber: 221,
                                                                                         columnNumber: 25
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                lineNumber: 216,
+                                                                                lineNumber: 219,
                                                                                 columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1260,7 +1263,7 @@ const ReceptionistPatient = ()=>{
                                                                                         children: "Preferred Time"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 238,
+                                                                                        lineNumber: 241,
                                                                                         columnNumber: 25
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1271,12 +1274,12 @@ const ReceptionistPatient = ()=>{
                                                                                                     placeholder: "Select time"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                    lineNumber: 241,
+                                                                                                    lineNumber: 244,
                                                                                                     columnNumber: 29
                                                                                                 }, this)
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                lineNumber: 240,
+                                                                                                lineNumber: 243,
                                                                                                 columnNumber: 27
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1286,7 +1289,7 @@ const ReceptionistPatient = ()=>{
                                                                                                         children: "Morning"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                        lineNumber: 244,
+                                                                                                        lineNumber: 247,
                                                                                                         columnNumber: 29
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1294,7 +1297,7 @@ const ReceptionistPatient = ()=>{
                                                                                                         children: "Afternoon"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                        lineNumber: 245,
+                                                                                                        lineNumber: 248,
                                                                                                         columnNumber: 29
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1302,31 +1305,31 @@ const ReceptionistPatient = ()=>{
                                                                                                         children: "Evening"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                        lineNumber: 246,
+                                                                                                        lineNumber: 249,
                                                                                                         columnNumber: 29
                                                                                                     }, this)
                                                                                                 ]
                                                                                             }, void 0, true, {
                                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                lineNumber: 243,
+                                                                                                lineNumber: 246,
                                                                                                 columnNumber: 27
                                                                                             }, this)
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 239,
+                                                                                        lineNumber: 242,
                                                                                         columnNumber: 25
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                lineNumber: 237,
+                                                                                lineNumber: 240,
                                                                                 columnNumber: 23
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                        lineNumber: 215,
+                                                                        lineNumber: 218,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1336,7 +1339,7 @@ const ReceptionistPatient = ()=>{
                                                                                 children: "Additional Notes"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                lineNumber: 252,
+                                                                                lineNumber: 255,
                                                                                 columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1344,19 +1347,19 @@ const ReceptionistPatient = ()=>{
                                                                                 name: "notes"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                lineNumber: 253,
+                                                                                lineNumber: 256,
                                                                                 columnNumber: 23
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                        lineNumber: 251,
+                                                                        lineNumber: 254,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                lineNumber: 177,
+                                                                lineNumber: 180,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -1365,36 +1368,36 @@ const ReceptionistPatient = ()=>{
                                                                     children: "Add Patient"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                    lineNumber: 257,
+                                                                    lineNumber: 260,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                lineNumber: 256,
+                                                                lineNumber: 259,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                        lineNumber: 154,
+                                                        lineNumber: 157,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                lineNumber: 147,
+                                                lineNumber: 150,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 144,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                lineNumber: 127,
+                                lineNumber: 130,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Table"], {
@@ -1406,53 +1409,53 @@ const ReceptionistPatient = ()=>{
                                                     children: "Name"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                    lineNumber: 266,
+                                                    lineNumber: 269,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                     children: "Contact"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                    lineNumber: 267,
+                                                    lineNumber: 270,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                     children: "Last Visit"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                    lineNumber: 268,
+                                                    lineNumber: 271,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                     children: "Medical History"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                    lineNumber: 269,
+                                                    lineNumber: 272,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                     children: "Appointment Preferences"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                    lineNumber: 270,
+                                                    lineNumber: 273,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                                     children: "Actions"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                    lineNumber: 271,
+                                                    lineNumber: 274,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                            lineNumber: 265,
+                                            lineNumber: 268,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                        lineNumber: 264,
+                                        lineNumber: 267,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -1462,21 +1465,21 @@ const ReceptionistPatient = ()=>{
                                                         children: patient.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                        lineNumber: 277,
+                                                        lineNumber: 280,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                         children: patient.contact
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                        lineNumber: 278,
+                                                        lineNumber: 281,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                         children: patient.lastVisit
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                        lineNumber: 279,
+                                                        lineNumber: 282,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1485,12 +1488,12 @@ const ReceptionistPatient = ()=>{
                                                                 children: history.condition
                                                             }, index, false, {
                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                lineNumber: 282,
+                                                                lineNumber: 285,
                                                                 columnNumber: 23
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                        lineNumber: 280,
+                                                        lineNumber: 283,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1502,7 +1505,7 @@ const ReceptionistPatient = ()=>{
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                        lineNumber: 287,
+                                                        lineNumber: 290,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1522,19 +1525,19 @@ const ReceptionistPatient = ()=>{
                                                                                         className: "mr-2 h-4 w-4"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                        lineNumber: 300,
+                                                                                        lineNumber: 303,
                                                                                         columnNumber: 29
                                                                                     }, this),
                                                                                     " View/Edit"
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                lineNumber: 295,
+                                                                                lineNumber: 298,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                            lineNumber: 294,
+                                                                            lineNumber: 297,
                                                                             columnNumber: 25
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -1546,20 +1549,20 @@ const ReceptionistPatient = ()=>{
                                                                                             children: "Patient Information"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                            lineNumber: 305,
+                                                                                            lineNumber: 308,
                                                                                             columnNumber: 29
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogDescription"], {
                                                                                             children: "View or update patient details."
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                            lineNumber: 306,
+                                                                                            lineNumber: 309,
                                                                                             columnNumber: 29
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                    lineNumber: 304,
+                                                                                    lineNumber: 307,
                                                                                     columnNumber: 27
                                                                                 }, this),
                                                                                 selectedPatient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -1599,7 +1602,7 @@ const ReceptionistPatient = ()=>{
                                                                                                                     children: "Name"
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 342,
+                                                                                                                    lineNumber: 345,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this),
                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1609,13 +1612,13 @@ const ReceptionistPatient = ()=>{
                                                                                                                     required: true
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 343,
+                                                                                                                    lineNumber: 346,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this)
                                                                                                             ]
                                                                                                         }, void 0, true, {
                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                            lineNumber: 341,
+                                                                                                            lineNumber: 344,
                                                                                                             columnNumber: 35
                                                                                                         }, this),
                                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1625,7 +1628,7 @@ const ReceptionistPatient = ()=>{
                                                                                                                     children: "Contact"
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 351,
+                                                                                                                    lineNumber: 354,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this),
                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1636,24 +1639,24 @@ const ReceptionistPatient = ()=>{
                                                                                                                     required: true
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 354,
+                                                                                                                    lineNumber: 357,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this)
                                                                                                             ]
                                                                                                         }, void 0, true, {
                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                            lineNumber: 350,
+                                                                                                            lineNumber: 353,
                                                                                                             columnNumber: 35
                                                                                                         }, this)
                                                                                                     ]
                                                                                                 }, void 0, true, {
                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                    lineNumber: 340,
+                                                                                                    lineNumber: 343,
                                                                                                     columnNumber: 33
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$separator$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Separator"], {}, void 0, false, {
                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                    lineNumber: 363,
+                                                                                                    lineNumber: 366,
                                                                                                     columnNumber: 33
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -1661,7 +1664,7 @@ const ReceptionistPatient = ()=>{
                                                                                                     children: "Medical History"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                    lineNumber: 364,
+                                                                                                    lineNumber: 367,
                                                                                                     columnNumber: 33
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1674,7 +1677,7 @@ const ReceptionistPatient = ()=>{
                                                                                                                     children: "Condition"
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 367,
+                                                                                                                    lineNumber: 370,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this),
                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1683,13 +1686,13 @@ const ReceptionistPatient = ()=>{
                                                                                                                     defaultValue: selectedPatient.medicalHistory[0]?.condition
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 370,
+                                                                                                                    lineNumber: 373,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this)
                                                                                                             ]
                                                                                                         }, void 0, true, {
                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                            lineNumber: 366,
+                                                                                                            lineNumber: 369,
                                                                                                             columnNumber: 35
                                                                                                         }, this),
                                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1699,7 +1702,7 @@ const ReceptionistPatient = ()=>{
                                                                                                                     children: "Diagnosis Date"
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 380,
+                                                                                                                    lineNumber: 383,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this),
                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1709,13 +1712,13 @@ const ReceptionistPatient = ()=>{
                                                                                                                     defaultValue: selectedPatient.medicalHistory[0]?.diagnosisDate
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 383,
+                                                                                                                    lineNumber: 386,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this)
                                                                                                             ]
                                                                                                         }, void 0, true, {
                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                            lineNumber: 379,
+                                                                                                            lineNumber: 382,
                                                                                                             columnNumber: 35
                                                                                                         }, this),
                                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1725,7 +1728,7 @@ const ReceptionistPatient = ()=>{
                                                                                                                     children: "Medications"
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 394,
+                                                                                                                    lineNumber: 397,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this),
                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1734,24 +1737,24 @@ const ReceptionistPatient = ()=>{
                                                                                                                     defaultValue: selectedPatient.medicalHistory[0]?.medications
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 397,
+                                                                                                                    lineNumber: 400,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this)
                                                                                                             ]
                                                                                                         }, void 0, true, {
                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                            lineNumber: 393,
+                                                                                                            lineNumber: 396,
                                                                                                             columnNumber: 35
                                                                                                         }, this)
                                                                                                     ]
                                                                                                 }, void 0, true, {
                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                    lineNumber: 365,
+                                                                                                    lineNumber: 368,
                                                                                                     columnNumber: 33
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$separator$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Separator"], {}, void 0, false, {
                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                    lineNumber: 407,
+                                                                                                    lineNumber: 410,
                                                                                                     columnNumber: 33
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -1759,7 +1762,7 @@ const ReceptionistPatient = ()=>{
                                                                                                     children: "Appointment Preferences"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                    lineNumber: 408,
+                                                                                                    lineNumber: 411,
                                                                                                     columnNumber: 33
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1772,7 +1775,7 @@ const ReceptionistPatient = ()=>{
                                                                                                                     children: "Preferred Days"
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 413,
+                                                                                                                    lineNumber: 416,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this),
                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1785,12 +1788,12 @@ const ReceptionistPatient = ()=>{
                                                                                                                                 placeholder: "Select days"
                                                                                                                             }, void 0, false, {
                                                                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                                lineNumber: 425,
+                                                                                                                                lineNumber: 428,
                                                                                                                                 columnNumber: 41
                                                                                                                             }, this)
                                                                                                                         }, void 0, false, {
                                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                            lineNumber: 424,
+                                                                                                                            lineNumber: 427,
                                                                                                                             columnNumber: 39
                                                                                                                         }, this),
                                                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1805,24 +1808,24 @@ const ReceptionistPatient = ()=>{
                                                                                                                                     children: day
                                                                                                                                 }, day, false, {
                                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                                    lineNumber: 435,
+                                                                                                                                    lineNumber: 438,
                                                                                                                                     columnNumber: 43
                                                                                                                                 }, this))
                                                                                                                         }, void 0, false, {
                                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                            lineNumber: 427,
+                                                                                                                            lineNumber: 430,
                                                                                                                             columnNumber: 39
                                                                                                                         }, this)
                                                                                                                     ]
                                                                                                                 }, void 0, true, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 416,
+                                                                                                                    lineNumber: 419,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this)
                                                                                                             ]
                                                                                                         }, void 0, true, {
                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                            lineNumber: 412,
+                                                                                                            lineNumber: 415,
                                                                                                             columnNumber: 35
                                                                                                         }, this),
                                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1832,7 +1835,7 @@ const ReceptionistPatient = ()=>{
                                                                                                                     children: "Preferred Time"
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 443,
+                                                                                                                    lineNumber: 446,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this),
                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1844,12 +1847,12 @@ const ReceptionistPatient = ()=>{
                                                                                                                                 placeholder: "Select time"
                                                                                                                             }, void 0, false, {
                                                                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                                lineNumber: 454,
+                                                                                                                                lineNumber: 457,
                                                                                                                                 columnNumber: 41
                                                                                                                             }, this)
                                                                                                                         }, void 0, false, {
                                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                            lineNumber: 453,
+                                                                                                                            lineNumber: 456,
                                                                                                                             columnNumber: 39
                                                                                                                         }, this),
                                                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1859,7 +1862,7 @@ const ReceptionistPatient = ()=>{
                                                                                                                                     children: "Morning"
                                                                                                                                 }, void 0, false, {
                                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                                    lineNumber: 457,
+                                                                                                                                    lineNumber: 460,
                                                                                                                                     columnNumber: 41
                                                                                                                                 }, this),
                                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1867,7 +1870,7 @@ const ReceptionistPatient = ()=>{
                                                                                                                                     children: "Afternoon"
                                                                                                                                 }, void 0, false, {
                                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                                    lineNumber: 460,
+                                                                                                                                    lineNumber: 463,
                                                                                                                                     columnNumber: 41
                                                                                                                                 }, this),
                                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1875,31 +1878,31 @@ const ReceptionistPatient = ()=>{
                                                                                                                                     children: "Evening"
                                                                                                                                 }, void 0, false, {
                                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                                    lineNumber: 463,
+                                                                                                                                    lineNumber: 466,
                                                                                                                                     columnNumber: 41
                                                                                                                                 }, this)
                                                                                                                             ]
                                                                                                                         }, void 0, true, {
                                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                            lineNumber: 456,
+                                                                                                                            lineNumber: 459,
                                                                                                                             columnNumber: 39
                                                                                                                         }, this)
                                                                                                                     ]
                                                                                                                 }, void 0, true, {
                                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                                    lineNumber: 446,
+                                                                                                                    lineNumber: 449,
                                                                                                                     columnNumber: 37
                                                                                                                 }, this)
                                                                                                             ]
                                                                                                         }, void 0, true, {
                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                            lineNumber: 442,
+                                                                                                            lineNumber: 445,
                                                                                                             columnNumber: 35
                                                                                                         }, this)
                                                                                                     ]
                                                                                                 }, void 0, true, {
                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                    lineNumber: 411,
+                                                                                                    lineNumber: 414,
                                                                                                     columnNumber: 33
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1909,7 +1912,7 @@ const ReceptionistPatient = ()=>{
                                                                                                             children: "Additional Notes"
                                                                                                         }, void 0, false, {
                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                            lineNumber: 471,
+                                                                                                            lineNumber: 474,
                                                                                                             columnNumber: 35
                                                                                                         }, this),
                                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1918,19 +1921,19 @@ const ReceptionistPatient = ()=>{
                                                                                                             defaultValue: selectedPatient.appointmentPreferences.notes
                                                                                                         }, void 0, false, {
                                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                            lineNumber: 474,
+                                                                                                            lineNumber: 477,
                                                                                                             columnNumber: 35
                                                                                                         }, this)
                                                                                                     ]
                                                                                                 }, void 0, true, {
                                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                    lineNumber: 470,
+                                                                                                    lineNumber: 473,
                                                                                                     columnNumber: 33
                                                                                                 }, this)
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                            lineNumber: 339,
+                                                                                            lineNumber: 342,
                                                                                             columnNumber: 31
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -1939,99 +1942,175 @@ const ReceptionistPatient = ()=>{
                                                                                                 children: "Update Patient"
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                                lineNumber: 485,
+                                                                                                lineNumber: 488,
                                                                                                 columnNumber: 33
                                                                                             }, this)
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                            lineNumber: 484,
+                                                                                            lineNumber: 487,
                                                                                             columnNumber: 31
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                                    lineNumber: 311,
+                                                                                    lineNumber: 314,
                                                                                     columnNumber: 29
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                            lineNumber: 303,
+                                                                            lineNumber: 306,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                    lineNumber: 293,
+                                                                    lineNumber: 296,
                                                                     columnNumber: 23
                                                                 }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                                    variant: "outline",
-                                                                    size: "sm",
-                                                                    onClick: ()=>handleDeletePatient(patient.id),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
+                                                                    open: isDeleteDialogOpen,
+                                                                    onOpenChange: setIsDeleteDialogOpen,
                                                                     children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
-                                                                            className: "mr-2 h-4 w-4"
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTrigger"], {
+                                                                            asChild: true,
+                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                                variant: "destructive",
+                                                                                size: "sm",
+                                                                                onClick: ()=>{
+                                                                                    setPatientToDelete(patient);
+                                                                                    setIsDeleteDialogOpen(true);
+                                                                                },
+                                                                                children: [
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
+                                                                                        className: "mr-2 h-4 w-4"
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/app/receptionist/patients/page.tsx",
+                                                                                        lineNumber: 507,
+                                                                                        columnNumber: 29
+                                                                                    }, this),
+                                                                                    " Delete"
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/app/receptionist/patients/page.tsx",
+                                                                                lineNumber: 499,
+                                                                                columnNumber: 27
+                                                                            }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                            lineNumber: 496,
+                                                                            lineNumber: 498,
                                                                             columnNumber: 25
                                                                         }, this),
-                                                                        " Delete"
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogHeader"], {
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTitle"], {
+                                                                                            children: "Confirm Deletion"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/receptionist/patients/page.tsx",
+                                                                                            lineNumber: 512,
+                                                                                            columnNumber: 29
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogDescription"], {
+                                                                                            children: "Are you sure you want to delete this patient's record? This action cannot be undone."
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/receptionist/patients/page.tsx",
+                                                                                            lineNumber: 513,
+                                                                                            columnNumber: 29
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/app/receptionist/patients/page.tsx",
+                                                                                    lineNumber: 511,
+                                                                                    columnNumber: 27
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                                            variant: "outline",
+                                                                                            onClick: ()=>setIsDeleteDialogOpen(false),
+                                                                                            children: "Cancel"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/receptionist/patients/page.tsx",
+                                                                                            lineNumber: 520,
+                                                                                            columnNumber: 29
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                                            variant: "destructive",
+                                                                                            onClick: ()=>handleDeletePatient(patientToDelete.id),
+                                                                                            children: "Confirm"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/receptionist/patients/page.tsx",
+                                                                                            lineNumber: 526,
+                                                                                            columnNumber: 29
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/app/receptionist/patients/page.tsx",
+                                                                                    lineNumber: 519,
+                                                                                    columnNumber: 27
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/app/receptionist/patients/page.tsx",
+                                                                            lineNumber: 510,
+                                                                            columnNumber: 25
+                                                                        }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                                    lineNumber: 491,
+                                                                    lineNumber: 494,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                            lineNumber: 292,
+                                                            lineNumber: 295,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                        lineNumber: 291,
+                                                        lineNumber: 294,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, patient.id, true, {
                                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                                lineNumber: 276,
+                                                lineNumber: 279,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                                        lineNumber: 274,
+                                        lineNumber: 277,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                                lineNumber: 263,
+                                lineNumber: 266,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/receptionist/patients/page.tsx",
-                        lineNumber: 126,
+                        lineNumber: 129,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/receptionist/patients/page.tsx",
-                lineNumber: 119,
+                lineNumber: 122,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/receptionist/patients/page.tsx",
-        lineNumber: 115,
+        lineNumber: 118,
         columnNumber: 5
     }, this);
 };
-_s(ReceptionistPatient, "zOKOmdubzPOCDFLsDWK95SkXdQI=");
+_s(ReceptionistPatient, "EfNwnWURAhy3kiwR1po5GbsFd68=");
 _c = ReceptionistPatient;
 const __TURBOPACK__default__export__ = ReceptionistPatient;
 var _c;

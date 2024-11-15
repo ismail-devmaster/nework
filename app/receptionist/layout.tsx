@@ -144,6 +144,19 @@ const ReceptionistDashboardComponent = ({
               <Calendar className="w-4 h-4" />
               {isSidebarOpen && <span className="ml-3">New Appointments</span>}
             </Link>
+
+            <Link
+              className={`flex items-center px-4 py-2 ${
+                activeContent === "patientSearch"
+                  ? "text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-700"
+                  : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white"
+              }`}
+              href="/receptionist/details/patientSearchRec"
+              onClick={() => setActiveContent("patientSearch")}
+            >
+              <Calendar className="w-4 h-4" />
+              {isSidebarOpen && <span className="ml-3">patientSearch</span>}
+            </Link>
           </nav>
         </div>
       </aside>
