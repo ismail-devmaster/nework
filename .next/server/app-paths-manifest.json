@@ -1,7 +1,7 @@
 {
-  "/receptionist/patients/page": "app/receptionist/patients/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
+  "/receptionist/page": "app/receptionist/page.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/patient/page": "app/patient/page.js",
-  "/patient/queue/page": "app/patient/queue/page.js"
+  "/receptionist/patients/page": "app/receptionist/patients/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }
