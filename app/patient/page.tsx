@@ -28,8 +28,10 @@ import { Textarea } from "@/components/ui/textarea";
 interface PageProps {
   isNewPatient?: boolean
 }
-const Page =({ isNewPatient = false }: { isNewPatient?: boolean }) => {
+const Page =() => {
+  const [isNewPatient, setIsNewPatient] = useState(false);  // Move isNewPatient to state
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+ 
   return (
     <div className="w-full max-w-6xl mx-auto">
       <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center dark:text-white">
