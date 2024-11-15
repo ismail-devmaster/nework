@@ -304,6 +304,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/card.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/avatar.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$receptionist$2f$patients$2f$patientDetails$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/app/receptionist/patients/patientDetails.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/dialog.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/search.js [app-client] (ecmascript) <export default as Search>");
 ;
@@ -315,7 +316,9 @@ var _s = __turbopack_refresh__.signature();
 ;
 ;
 ;
-// Mock patient data with additional fields
+;
+;
+// Mock patient data (unchanged)
 const patients = [
     {
         id: 1,
@@ -341,13 +344,19 @@ const patients = [
         paymentHistory: [
             {
                 date: "2023-06-01",
+                time: "10:30",
+                doctor: "Dr. Zin Dinne",
                 amount: 150,
-                description: "Regular checkup"
+                description: "Regular checkup",
+                status: "Pending"
             },
             {
                 date: "2023-03-15",
+                time: "14:00",
+                doctor: "Dr. Zin Dinne",
                 amount: 75,
-                description: "Blood test"
+                description: "Blood test",
+                status: "Paid"
             }
         ]
     },
@@ -375,347 +384,29 @@ const patients = [
         paymentHistory: [
             {
                 date: "2023-05-20",
+                time: "11:00",
+                doctor: "Dr. ismail",
                 amount: 200,
-                description: "Diabetes consultation"
+                description: "Diabetes consultation",
+                status: "Pending"
             },
             {
                 date: "2023-02-10",
+                time: "11:00",
+                doctor: "Dr. ismail",
                 amount: 100,
-                description: "HbA1c test"
+                description: "HbA1c test",
+                status: "Paid"
             }
         ]
     }
 ];
-function PatientDetails({ patient }) {
-    if (!patient) return null;
-    return /*#__PURE__*/ _jsxDEV(Card, {
-        className: "mt-4",
-        children: [
-            /*#__PURE__*/ _jsxDEV(CardHeader, {
-                children: /*#__PURE__*/ _jsxDEV(CardTitle, {
-                    children: "Patient Details"
-                }, void 0, false, {
-                    fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                    lineNumber: 73,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                lineNumber: 72,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ _jsxDEV(CardContent, {
-                children: [
-                    /*#__PURE__*/ _jsxDEV("div", {
-                        className: "grid grid-cols-1 md:grid-cols-2 gap-4",
-                        children: [
-                            /*#__PURE__*/ _jsxDEV("div", {
-                                children: [
-                                    /*#__PURE__*/ _jsxDEV("h3", {
-                                        className: "text-lg font-semibold mb-2",
-                                        children: "Personal Information"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 78,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDEV("p", {
-                                        children: [
-                                            /*#__PURE__*/ _jsxDEV("strong", {
-                                                children: "Full Name:"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                lineNumber: 80,
-                                                columnNumber: 15
-                                            }, this),
-                                            " ",
-                                            patient.name
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 79,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDEV("p", {
-                                        children: [
-                                            /*#__PURE__*/ _jsxDEV("strong", {
-                                                children: "Age:"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                lineNumber: 83,
-                                                columnNumber: 15
-                                            }, this),
-                                            " ",
-                                            patient.age
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 82,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDEV("p", {
-                                        children: [
-                                            /*#__PURE__*/ _jsxDEV("strong", {
-                                                children: "Date of Birth:"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                lineNumber: 86,
-                                                columnNumber: 15
-                                            }, this),
-                                            " ",
-                                            patient.dateOfBirth
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 85,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDEV("p", {
-                                        children: [
-                                            /*#__PURE__*/ _jsxDEV("strong", {
-                                                children: "Sex:"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                lineNumber: 89,
-                                                columnNumber: 15
-                                            }, this),
-                                            " ",
-                                            patient.sex
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 88,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDEV("p", {
-                                        children: [
-                                            /*#__PURE__*/ _jsxDEV("strong", {
-                                                children: "Phone:"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                lineNumber: 92,
-                                                columnNumber: 15
-                                            }, this),
-                                            " ",
-                                            patient.phoneNumber
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 91,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDEV("p", {
-                                        children: [
-                                            /*#__PURE__*/ _jsxDEV("strong", {
-                                                children: "Email:"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                lineNumber: 95,
-                                                columnNumber: 15
-                                            }, this),
-                                            " ",
-                                            patient.email
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 94,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                lineNumber: 77,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ _jsxDEV("div", {
-                                children: [
-                                    /*#__PURE__*/ _jsxDEV("h3", {
-                                        className: "text-lg font-semibold mb-2",
-                                        children: "Medical Information"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 99,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDEV("p", {
-                                        children: [
-                                            /*#__PURE__*/ _jsxDEV("strong", {
-                                                children: "Current Condition:"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                lineNumber: 101,
-                                                columnNumber: 15
-                                            }, this),
-                                            " ",
-                                            patient.condition
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 100,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDEV("h4", {
-                                        className: "font-semibold mt-2",
-                                        children: "Medical History"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 103,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDEV("ul", {
-                                        className: "list-disc pl-5",
-                                        children: patient.medicalHistory.map((record, index)=>/*#__PURE__*/ _jsxDEV("li", {
-                                                children: [
-                                                    record.date,
-                                                    ": ",
-                                                    record.diagnosis,
-                                                    " - ",
-                                                    record.treatment
-                                                ]
-                                            }, index, true, {
-                                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                lineNumber: 106,
-                                                columnNumber: 17
-                                            }, this))
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 104,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                lineNumber: 98,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                        lineNumber: 76,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ _jsxDEV("div", {
-                        className: "mt-4",
-                        children: [
-                            /*#__PURE__*/ _jsxDEV("h3", {
-                                className: "text-lg font-semibold mb-2",
-                                children: "Payment History"
-                            }, void 0, false, {
-                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                lineNumber: 114,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ _jsxDEV("table", {
-                                className: "w-full",
-                                children: [
-                                    /*#__PURE__*/ _jsxDEV("thead", {
-                                        children: /*#__PURE__*/ _jsxDEV("tr", {
-                                            children: [
-                                                /*#__PURE__*/ _jsxDEV("th", {
-                                                    className: "text-left",
-                                                    children: "Date"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                    lineNumber: 118,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ _jsxDEV("th", {
-                                                    className: "text-left",
-                                                    children: "Description"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                    lineNumber: 119,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ _jsxDEV("th", {
-                                                    className: "text-right",
-                                                    children: "Amount"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                    lineNumber: 120,
-                                                    columnNumber: 17
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                            lineNumber: 117,
-                                            columnNumber: 15
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 116,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDEV("tbody", {
-                                        children: patient.paymentHistory.map((payment, index)=>/*#__PURE__*/ _jsxDEV("tr", {
-                                                children: [
-                                                    /*#__PURE__*/ _jsxDEV("td", {
-                                                        children: payment.date
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                        lineNumber: 126,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ _jsxDEV("td", {
-                                                        children: payment.description
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                        lineNumber: 127,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ _jsxDEV("td", {
-                                                        className: "text-right",
-                                                        children: [
-                                                            "$",
-                                                            payment.amount
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                        lineNumber: 128,
-                                                        columnNumber: 19
-                                                    }, this)
-                                                ]
-                                            }, index, true, {
-                                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                lineNumber: 125,
-                                                columnNumber: 17
-                                            }, this))
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 123,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                lineNumber: 115,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                        lineNumber: 113,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                lineNumber: 75,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-        lineNumber: 71,
-        columnNumber: 5
-    }, this);
-}
-_c = PatientDetails;
-export default function PatientSearch() {
+function PatientSearch() {
     _s();
-    const [searchTerm, setSearchTerm] = useState("");
-    const [filteredPatients, setFilteredPatients] = useState(patients);
-    const [selectedPatient, setSelectedPatient] = useState(null);
+    const [searchTerm, setSearchTerm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [filteredPatients, setFilteredPatients] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(patients);
+    const [selectedPatient, setSelectedPatient] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [isDialogOpen, setIsDialogOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const handleSearch = (event)=>{
         const term = event.target.value.toLowerCase();
         setSearchTerm(term);
@@ -724,31 +415,32 @@ export default function PatientSearch() {
     };
     const handlePatientClick = (patient)=>{
         setSelectedPatient(patient);
+        setIsDialogOpen(true);
     };
-    return /*#__PURE__*/ _jsxDEV("div", {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "max-w-4xl mx-auto p-4",
         children: [
-            /*#__PURE__*/ _jsxDEV(Card, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                 children: [
-                    /*#__PURE__*/ _jsxDEV(CardHeader, {
-                        children: /*#__PURE__*/ _jsxDEV(CardTitle, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardHeader"], {
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
                             children: "Patient Search"
                         }, void 0, false, {
                             fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                            lineNumber: 164,
+                            lineNumber: 128,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                        lineNumber: 163,
+                        lineNumber: 127,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ _jsxDEV(CardContent, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                         children: [
-                            /*#__PURE__*/ _jsxDEV("div", {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex items-center space-x-2 mb-4",
                                 children: [
-                                    /*#__PURE__*/ _jsxDEV(Input, {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                         type: "text",
                                         placeholder: "Search patients...",
                                         value: searchTerm,
@@ -756,74 +448,74 @@ export default function PatientSearch() {
                                         className: "flex-grow"
                                     }, void 0, false, {
                                         fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 168,
+                                        lineNumber: 132,
                                         columnNumber: 13
                                     }, this),
-                                    /*#__PURE__*/ _jsxDEV(Button, {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                         variant: "outline",
                                         size: "icon",
                                         children: [
-                                            /*#__PURE__*/ _jsxDEV(Search, {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__["Search"], {
                                                 className: "h-4 w-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                lineNumber: 176,
+                                                lineNumber: 140,
                                                 columnNumber: 15
                                             }, this),
-                                            /*#__PURE__*/ _jsxDEV("span", {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "sr-only",
                                                 children: "Search"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                lineNumber: 177,
+                                                lineNumber: 141,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 175,
+                                        lineNumber: 139,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                lineNumber: 167,
+                                lineNumber: 131,
                                 columnNumber: 11
                             }, this),
-                            /*#__PURE__*/ _jsxDEV("div", {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "space-y-4",
                                 children: [
-                                    filteredPatients.map((patient)=>/*#__PURE__*/ _jsxDEV(Card, {
+                                    filteredPatients.map((patient)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                                             className: "cursor-pointer hover:bg-gray-100 transition-colors",
                                             onClick: ()=>handlePatientClick(patient),
-                                            children: /*#__PURE__*/ _jsxDEV(CardContent, {
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                                                 className: "flex items-center space-x-4 py-4",
                                                 children: [
-                                                    /*#__PURE__*/ _jsxDEV(Avatar, {
-                                                        children: /*#__PURE__*/ _jsxDEV(AvatarFallback, {
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Avatar"], {
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                             children: patient.name.split(" ").map((n)=>n[0]).join("")
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                            lineNumber: 189,
+                                                            lineNumber: 153,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                        lineNumber: 188,
+                                                        lineNumber: 152,
                                                         columnNumber: 19
                                                     }, this),
-                                                    /*#__PURE__*/ _jsxDEV("div", {
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "flex-grow",
                                                         children: [
-                                                            /*#__PURE__*/ _jsxDEV("h3", {
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                                                 className: "text-lg font-semibold",
                                                                 children: patient.name
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                                lineNumber: 197,
+                                                                lineNumber: 161,
                                                                 columnNumber: 21
                                                             }, this),
-                                                            /*#__PURE__*/ _jsxDEV("p", {
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                 className: "text-sm text-gray-500",
                                                                 children: [
                                                                     "Age: ",
@@ -831,10 +523,10 @@ export default function PatientSearch() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                                lineNumber: 198,
+                                                                lineNumber: 162,
                                                                 columnNumber: 21
                                                             }, this),
-                                                            /*#__PURE__*/ _jsxDEV("p", {
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                 className: "text-sm text-gray-500",
                                                                 children: [
                                                                     "Condition: ",
@@ -842,71 +534,100 @@ export default function PatientSearch() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                                lineNumber: 199,
+                                                                lineNumber: 163,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                        lineNumber: 196,
+                                                        lineNumber: 160,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                                lineNumber: 187,
+                                                lineNumber: 151,
                                                 columnNumber: 17
                                             }, this)
                                         }, patient.id, false, {
                                             fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                            lineNumber: 182,
+                                            lineNumber: 146,
                                             columnNumber: 15
                                         }, this)),
-                                    filteredPatients.length === 0 && /*#__PURE__*/ _jsxDEV("p", {
+                                    filteredPatients.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "text-center text-gray-500",
                                         children: "No patients found"
                                     }, void 0, false, {
                                         fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                        lineNumber: 207,
+                                        lineNumber: 171,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                                lineNumber: 180,
+                                lineNumber: 144,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                        lineNumber: 166,
+                        lineNumber: 130,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                lineNumber: 162,
+                lineNumber: 126,
                 columnNumber: 7
             }, this),
-            selectedPatient && /*#__PURE__*/ _jsxDEV(PatientDetails, {
-                patient: selectedPatient
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
+                open: isDialogOpen,
+                onOpenChange: setIsDialogOpen,
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
+                    className: "max-w-3xl",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogHeader"], {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTitle"], {
+                                children: "Patient Details"
+                            }, void 0, false, {
+                                fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
+                                lineNumber: 180,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
+                            lineNumber: 179,
+                            columnNumber: 11
+                        }, this),
+                        selectedPatient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$receptionist$2f$patients$2f$patientDetails$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            patient: selectedPatient
+                        }, void 0, false, {
+                            fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
+                            lineNumber: 182,
+                            columnNumber: 31
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
+                    lineNumber: 178,
+                    columnNumber: 9
+                }, this)
             }, void 0, false, {
                 fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-                lineNumber: 212,
-                columnNumber: 27
+                lineNumber: 177,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/receptionist/details/patientSearchRec/page.tsx",
-        lineNumber: 161,
+        lineNumber: 125,
         columnNumber: 5
     }, this);
 }
-_s(PatientSearch, "kE24Ny9adxjbQagoJ8+g5X+0Nb8=");
-_c1 = PatientSearch;
-var _c, _c1;
-__turbopack_refresh__.register(_c, "PatientDetails");
-__turbopack_refresh__.register(_c1, "PatientSearch");
+_s(PatientSearch, "1qtyW+7ogPOsdpwqundpNC+u1HI=");
+_c = PatientSearch;
+var _c;
+__turbopack_refresh__.register(_c, "PatientSearch");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
 }

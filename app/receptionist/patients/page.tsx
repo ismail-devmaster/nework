@@ -38,24 +38,78 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import PatientDetails from "./patientDetails";
 
 const ReceptionistPatient = () => {
   const [patients, setPatients] = React.useState([
+    // {
+    //   id: 1,
+    //   name: "John Doe",
+    //   contact: "john@example.com",
+    //   lastVisit: "2023-05-15",
+    //   medicalHistory: [
+    //     {
+    //       condition: "Hypertension",
+    //       diagnosisDate: "2020-03-10",
+    //       medications: "Lisinopril",
+    //     },
+    //     {
+    //       condition: "Diabetes",
+    //       diagnosisDate: "2019-11-22",
+    //       medications: "Metformin",
+    //     },
+    //   ],
+    //   appointmentPreferences: {
+    //     preferredDays: ["Monday", "Wednesday"],
+    //     preferredTime: "Morning",
+    //     notes: "Prefers early morning appointments",
+    //   },
+    // },
     {
-      id: 1,
-      name: "John Doe",
       contact: "john@example.com",
       lastVisit: "2023-05-15",
+      id: 1,
+      name: "John Doe",
+      age: 45,
+      dateOfBirth: "1978-05-15",
+      sex: "Male",
+      phoneNumber: "(555) 123-4567",
+      email: "john.doe@example.com",
+      condition: "Hypertension",
       medicalHistory: [
         {
           condition: "Hypertension",
           diagnosisDate: "2020-03-10",
           medications: "Lisinopril",
+          date: "2022-03-10",
+          diagnosis: "Hypertension",
+          treatment: "Prescribed lisinopril",
         },
         {
-          condition: "Diabetes",
-          diagnosisDate: "2019-11-22",
-          medications: "Metformin",
+          condition: "Hypertension",
+          diagnosisDate: "2020-03-10",
+          medications: "Lisinopril",
+          date: "2021-11-22",
+          diagnosis: "Sprained ankle",
+          treatment: "Rest and ice therapy",
+        },
+      ],
+      paymentHistory: [
+        {
+          date: "2023-06-01",
+          time: "10:30",
+          doctor: "Dr. Zin Dinne",
+          amount: 150,
+          description: "Regular checkup",
+          status: "Pending",
+        },
+        {
+          date: "2023-03-15",
+          time: "14:00",
+          doctor: "Dr. Zin Dinne",
+          amount: 75,
+          description: "Blood test",
+          status: "Paid",
         },
       ],
       appointmentPreferences: {
@@ -64,22 +118,75 @@ const ReceptionistPatient = () => {
         notes: "Prefers early morning appointments",
       },
     },
+    // {
+    //   id: 2,
+    //   name: "Jane Smith",
+    //   contact: "jane@example.com",
+    //   lastVisit: "2023-06-02",
+    //   medicalHistory: [
+    //     {
+    //       condition: "Asthma",
+    //       diagnosisDate: "2018-07-15",
+    //       medications: "Albuterol inhaler",
+    //     },
+    //   ],
+    //   appointmentPreferences: {
+    //     preferredDays: ["Tuesday", "Thursday"],
+    //     preferredTime: "Afternoon",
+    //     notes: "Prefers late afternoon appointments",
+    //   },
+    // },
     {
+      contact: "john@example.com",
+      lastVisit: "2023-05-15",
       id: 2,
-      name: "Jane Smith",
-      contact: "jane@example.com",
-      lastVisit: "2023-06-02",
+      name: "John Doek",
+      age: 45,
+      dateOfBirth: "1978-05-15",
+      sex: "Male",
+      phoneNumber: "(555) 123-4567",
+      email: "john.doe@example.com",
+      condition: "Hypertension",
       medicalHistory: [
         {
-          condition: "Asthma",
-          diagnosisDate: "2018-07-15",
-          medications: "Albuterol inhaler",
+          condition: "Hypertension",
+          diagnosisDate: "2020-03-10",
+          medications: "Lisinopril",
+          date: "2022-03-10",
+          diagnosis: "Hypertension",
+          treatment: "Prescribed lisinopril",
+        },
+        {
+          condition: "Hypertension",
+          diagnosisDate: "2020-03-10",
+          medications: "Lisinopril",
+          date: "2021-11-22",
+          diagnosis: "Sprained ankle",
+          treatment: "Rest and ice therapy",
+        },
+      ],
+      paymentHistory: [
+        {
+          date: "2023-06-01",
+          time: "10:30",
+          doctor: "Dr. Zin Dinne",
+          amount: 150,
+          description: "Regular checkup",
+          status: "Pending",
+        },
+        {
+          date: "2023-03-15",
+          time: "14:00",
+          doctor: "Dr. Zin Dinne",
+          amount: 75,
+          description: "Blood test",
+          status: "Paid",
         },
       ],
       appointmentPreferences: {
-        preferredDays: ["Tuesday", "Thursday"],
-        preferredTime: "Afternoon",
-        notes: "Prefers late afternoon appointments",
+        preferredDays: ["Monday", "Wednesday"],
+        preferredTime: "Morning",
+        notes: "Prefers early morning appointments",
       },
     },
   ]);
@@ -114,6 +221,13 @@ const ReceptionistPatient = () => {
     setPatientToDelete(null);
   };
 
+  const [isHelloDialogOpen, setIsHelloDialogOpen] = React.useState(false);
+  const [isPatientInfoDialogOpen, setIsPatientInfoDialogOpen] =
+    React.useState(false);
+  const handlePatientClick = (patient) => {
+    setSelectedPatient(patient);
+    setIsPatientInfoDialogOpen(true);
+  };
   return (
     <div className="w-full max-w-6xl mx-auto">
       <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center dark:text-white">
@@ -277,7 +391,12 @@ const ReceptionistPatient = () => {
             <TableBody>
               {filteredPatients.map((patient) => (
                 <TableRow key={patient.id}>
-                  <TableCell>{patient.name}</TableCell>
+                  <TableCell
+                    className="cursor-pointer"
+                    onClick={() => handlePatientClick(patient)}
+                  >
+                    {patient.name}
+                  </TableCell>
                   <TableCell>{patient.contact}</TableCell>
                   <TableCell>{patient.lastVisit}</TableCell>
                   <TableCell>
@@ -542,6 +661,17 @@ const ReceptionistPatient = () => {
           </Table>
         </CardContent>
       </Card>
+      <Dialog
+        open={isPatientInfoDialogOpen}
+        onOpenChange={setIsPatientInfoDialogOpen}
+      >
+        <DialogContent className="max-w-3xl">
+          <DialogHeader>
+            <DialogTitle>Patient Details</DialogTitle>
+          </DialogHeader>
+          {selectedPatient && <PatientDetails patient={selectedPatient} />}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

@@ -7,6 +7,6 @@ runtime.loadChunk("server/chunks/ssr/app_d0d911._.css");
 runtime.loadChunk("server/chunks/ssr/_a1e098._.js");
 runtime.loadChunk("server/chunks/ssr/node_modules_16929d._.js");
 runtime.loadChunk("server/chunks/ssr/app_receptionist_layout_tsx_32158f._.js");
-runtime.loadChunk("server/chunks/ssr/_67ea40._.js");
+runtime.loadChunk("server/chunks/ssr/_123021._.js");
 runtime.getOrInstantiateRuntimeModule("[project]/.next-internal/server/app/receptionist/details/patientSearchRec/page/actions.js [app-rsc] (ecmascript)", CHUNK_PUBLIC_PATH);
 module.exports = runtime.getOrInstantiateRuntimeModule("[project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/receptionist/details/patientSearchRec/page { METADATA_0 => \"[project]/app/favicon.ico.mjs { IMAGE => \\\"[project]/app/favicon.ico [app-rsc] (static)\\\" } [app-rsc] (structured image object, ecmascript, Next.js server component)\", MODULE_1 => \"[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_2 => \"[project]/node_modules/next/dist/client/components/not-found-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_3 => \"[project]/app/receptionist/layout.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_4 => \"[project]/app/receptionist/details/patientSearchRec/page.tsx [app-rsc] (ecmascript, Next.js server component)\" } [app-rsc] (ecmascript)", CHUNK_PUBLIC_PATH).exports;
