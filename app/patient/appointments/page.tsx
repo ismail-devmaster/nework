@@ -191,6 +191,23 @@ export default function AppointmentsPageComponent() {
 
     // Switch to the Waiting tab
     setActiveTab("waiting");
+<<<<<<< HEAD
+=======
+  };
+
+  const handleCancelBooking = () => {
+    // Reset form
+    setDate(new Date());
+    setSelectedTime(null);
+    setSelectedDoctor(null);
+    setSelectedReason(null);
+    setAdditionalNotes("");
+
+    toast({
+      title: "Booking Cancelled",
+      description: "Your appointment booking has been cancelled.",
+    });
+>>>>>>> 4989318
   };
 
   const handleReschedule = (appointment) => {
@@ -261,6 +278,26 @@ export default function AppointmentsPageComponent() {
 
   const today = new Date();
 
+<<<<<<< HEAD
+=======
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const openDialog = () => setIsDialogOpen(true);
+  const closeDialog = () => setIsDialogOpen(false);
+
+  const disabledDates = ["2024-11-25", "2024-12-31"];
+
+  // Function to handle date selection, with disabled dates check
+  const handleSelectDate = (selectedDate) => {
+    const isDisabled = disabledDates.some(
+      (disabledDate) =>
+        new Date(disabledDate).toDateString() === selectedDate.toDateString()
+    );
+    if (!isDisabled) {
+      setDate(selectedDate);
+    }
+  };
+
+>>>>>>> 4989318
   return (
     <div className="w-full max-w-6xl mx-auto">
       <main>
@@ -315,7 +352,11 @@ export default function AppointmentsPageComponent() {
                       <Calendar
                         mode="single"
                         selected={date}
+<<<<<<< HEAD
                         onSelect={setDate}
+=======
+                        onSelect={handleSelectDate}
+>>>>>>> 4989318
                         fromDate={new Date()}
                         className="rounded-md border-gray-200 dark:border-gray-700"
                       />

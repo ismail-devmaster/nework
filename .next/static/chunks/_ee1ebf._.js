@@ -959,13 +959,845 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
-"[project]/app/receptionist/patients/patientDetails.tsx [app-client] (ecmascript)": (function(__turbopack_context__) {
+"[project]/app/receptionist/patients/patientDetails.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
 
-var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, k: __turbopack_refresh__, m: module, e: exports, t: require } = __turbopack_context__;
+var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, k: __turbopack_refresh__, m: module, z: require } = __turbopack_context__;
 {
-const e = new Error("Could not parse module '[project]/app/receptionist/patients/patientDetails.tsx'");
-e.code = 'MODULE_UNPARSEABLE';
-throw e;}}),
+__turbopack_esm__({
+    "default": (()=>PatientDetails)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/card.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/button.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/badge.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/dialog.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/input.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/label.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/select.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$use$2d$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/use-toast.tsx [app-client] (ecmascript)");
+;
+var _s = __turbopack_refresh__.signature();
+;
+;
+;
+;
+;
+;
+;
+;
+;
+function PatientDetails({ patient = {} }) {
+    _s();
+    const [payments, setPayments] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(patient?.paymentHistory || []);
+    const [isModalOpen, setIsModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [newPayment, setNewPayment] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
+        date: new Date().toISOString().split("T")[0],
+        time: new Date().toTimeString().split(" ")[0].slice(0, 5),
+        description: "",
+        amount: "",
+        status: "Pending",
+        doctor: ""
+    });
+    const doctors = [
+        {
+            id: 1,
+            name: "Dr. John Doe"
+        },
+        {
+            id: 2,
+            name: "Dr. Jane Smith"
+        },
+        {
+            id: 3,
+            name: "Dr. Mike Johnson"
+        }
+    ];
+    if (!patient) return null;
+    const addNewPayment = ()=>{
+        if (!newPayment.description || !newPayment.amount || !newPayment.doctor) {
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$use$2d$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"])({
+                title: "Error",
+                description: "Please fill in all fields",
+                variant: "destructive"
+            });
+            return;
+        }
+        const updatedPayment = {
+            ...newPayment,
+            amount: parseFloat(newPayment.amount)
+        };
+        setPayments([
+            ...payments,
+            updatedPayment
+        ]);
+        patient.paymentHistory = [
+            ...patient.paymentHistory,
+            updatedPayment
+        ];
+        setIsModalOpen(false);
+        setNewPayment({
+            date: new Date().toISOString().split("T")[0],
+            time: new Date().toTimeString().split(" ")[0].slice(0, 5),
+            description: "",
+            amount: "",
+            status: "Pending",
+            doctor: ""
+        });
+        (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$use$2d$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"])({
+            title: "Success",
+            description: "Payment added successfully"
+        });
+    };
+    const toggleLastPaymentStatus = ()=>{
+        if (payments.length === 0) return;
+        const updatedPayments = [
+            ...payments
+        ];
+        const lastIndex = updatedPayments.length - 1;
+        updatedPayments[lastIndex].status = updatedPayments[lastIndex].status === "Paid" ? "Pending" : "Paid";
+        setPayments(updatedPayments);
+        patient.paymentHistory = updatedPayments;
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+        className: "mt-4",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardHeader"], {
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
+                    children: "Patient Details"
+                }, void 0, false, {
+                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                    lineNumber: 90,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                lineNumber: 89,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "grid grid-cols-1 md:grid-cols-2 gap-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        className: "text-lg font-semibold mb-2",
+                                        children: "Personal Information"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                        lineNumber: 95,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                children: "Full Name:"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                lineNumber: 97,
+                                                columnNumber: 15
+                                            }, this),
+                                            " ",
+                                            patient.name
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                        lineNumber: 96,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                children: "Age:"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                lineNumber: 100,
+                                                columnNumber: 15
+                                            }, this),
+                                            " ",
+                                            patient.age
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                        lineNumber: 99,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                children: "Date of Birth:"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                lineNumber: 103,
+                                                columnNumber: 15
+                                            }, this),
+                                            " ",
+                                            patient.dateOfBirth
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                        lineNumber: 102,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                children: "Sex:"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                lineNumber: 106,
+                                                columnNumber: 15
+                                            }, this),
+                                            " ",
+                                            patient.sex
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                        lineNumber: 105,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                children: "Phone:"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                lineNumber: 109,
+                                                columnNumber: 15
+                                            }, this),
+                                            " ",
+                                            patient.phoneNumber
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                        lineNumber: 108,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                children: "Email:"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                lineNumber: 112,
+                                                columnNumber: 15
+                                            }, this),
+                                            " ",
+                                            patient.email
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                        lineNumber: 111,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                lineNumber: 94,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        className: "text-lg font-semibold mb-2",
+                                        children: "Medical Information"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                        lineNumber: 116,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                children: "Current Condition:"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                lineNumber: 118,
+                                                columnNumber: 15
+                                            }, this),
+                                            " ",
+                                            patient.condition
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                        lineNumber: 117,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                        className: "font-semibold mt-2",
+                                        children: "Medical History"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                        lineNumber: 120,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                        className: "list-disc pl-5",
+                                        children: patient.medicalHistory.map((record, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                children: [
+                                                    record.date,
+                                                    ": ",
+                                                    record.diagnosis,
+                                                    " - ",
+                                                    record.treatment
+                                                ]
+                                            }, index, true, {
+                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                lineNumber: 123,
+                                                columnNumber: 17
+                                            }, this))
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                        lineNumber: 121,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                lineNumber: 115,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                        lineNumber: 93,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mt-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-lg font-semibold mb-2",
+                                children: "Payment History"
+                            }, void 0, false, {
+                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                lineNumber: 131,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex justify-between items-center mb-2",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
+                                    open: isModalOpen,
+                                    onOpenChange: setIsModalOpen,
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTrigger"], {
+                                            asChild: true,
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                children: "New Payment"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                lineNumber: 135,
+                                                columnNumber: 17
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                            lineNumber: 134,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogHeader"], {
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTitle"], {
+                                                        children: "Add New Payment"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                        lineNumber: 139,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                    lineNumber: 138,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "grid gap-4 py-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "grid grid-cols-4 items-center gap-4",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                    htmlFor: "description",
+                                                                    className: "text-right",
+                                                                    children: "Description"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                    lineNumber: 143,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                    id: "description",
+                                                                    value: newPayment.description,
+                                                                    onChange: (e)=>setNewPayment({
+                                                                            ...newPayment,
+                                                                            description: e.target.value
+                                                                        }),
+                                                                    className: "col-span-3",
+                                                                    required: true
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                    lineNumber: 146,
+                                                                    columnNumber: 21
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                            lineNumber: 142,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "grid grid-cols-4 items-center gap-4",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                    htmlFor: "amount",
+                                                                    className: "text-right",
+                                                                    children: "Amount"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                    lineNumber: 160,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                    id: "amount",
+                                                                    type: "number",
+                                                                    value: newPayment.amount,
+                                                                    onChange: (e)=>setNewPayment({
+                                                                            ...newPayment,
+                                                                            amount: e.target.value
+                                                                        }),
+                                                                    className: "col-span-3",
+                                                                    required: true
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                    lineNumber: 163,
+                                                                    columnNumber: 21
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                            lineNumber: 159,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "grid grid-cols-4 items-center gap-4",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                    htmlFor: "doctor",
+                                                                    className: "text-right",
+                                                                    children: "Doctor"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                    lineNumber: 175,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
+                                                                    value: newPayment.doctor,
+                                                                    onValueChange: (value)=>setNewPayment({
+                                                                            ...newPayment,
+                                                                            doctor: value
+                                                                        }),
+                                                                    required: true,
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
+                                                                            className: "col-span-3",
+                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
+                                                                                placeholder: "Select doctor"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                                lineNumber: 186,
+                                                                                columnNumber: 25
+                                                                            }, this)
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                            lineNumber: 185,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
+                                                                            children: doctors.map((doctor)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                                    value: doctor.name,
+                                                                                    children: doctor.name
+                                                                                }, doctor.id, false, {
+                                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                                    lineNumber: 190,
+                                                                                    columnNumber: 27
+                                                                                }, this))
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                            lineNumber: 188,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                    lineNumber: 178,
+                                                                    columnNumber: 21
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                            lineNumber: 174,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "grid grid-cols-4 items-center gap-4",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                    htmlFor: "date",
+                                                                    className: "text-right",
+                                                                    children: "Date"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                    lineNumber: 198,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                    id: "date",
+                                                                    type: "date",
+                                                                    value: newPayment.date,
+                                                                    onChange: (e)=>setNewPayment({
+                                                                            ...newPayment,
+                                                                            date: e.target.value
+                                                                        }),
+                                                                    className: "col-span-3",
+                                                                    required: true
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                    lineNumber: 201,
+                                                                    columnNumber: 21
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                            lineNumber: 197,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "grid grid-cols-4 items-center gap-4",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                    htmlFor: "time",
+                                                                    className: "text-right",
+                                                                    children: "Time"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                    lineNumber: 213,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                    id: "time",
+                                                                    type: "time",
+                                                                    value: newPayment.time,
+                                                                    onChange: (e)=>setNewPayment({
+                                                                            ...newPayment,
+                                                                            time: e.target.value
+                                                                        }),
+                                                                    className: "col-span-3",
+                                                                    required: true
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                    lineNumber: 216,
+                                                                    columnNumber: 21
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                            lineNumber: 212,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "grid grid-cols-4 items-center gap-4",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                    htmlFor: "status",
+                                                                    className: "text-right",
+                                                                    children: "Status"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                    lineNumber: 228,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
+                                                                    value: newPayment.status,
+                                                                    onValueChange: (value)=>setNewPayment({
+                                                                            ...newPayment,
+                                                                            status: value
+                                                                        }),
+                                                                    required: true,
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
+                                                                            className: "col-span-3",
+                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
+                                                                                placeholder: "Select status"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                                lineNumber: 239,
+                                                                                columnNumber: 25
+                                                                            }, this)
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                            lineNumber: 238,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                                    value: "Paid",
+                                                                                    children: "Paid"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                                    lineNumber: 242,
+                                                                                    columnNumber: 25
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                                    value: "Pending",
+                                                                                    children: "Pending"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                                    lineNumber: 243,
+                                                                                    columnNumber: 25
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                            lineNumber: 241,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                    lineNumber: 231,
+                                                                    columnNumber: 21
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                            lineNumber: 227,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                    lineNumber: 141,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                    onClick: addNewPayment,
+                                                    children: "Add Payment"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                    lineNumber: 248,
+                                                    columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                            lineNumber: 137,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                    lineNumber: 133,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                lineNumber: 132,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "overflow-x-auto",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
+                                    className: "w-full",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                        className: "text-left",
+                                                        children: "Date"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                        lineNumber: 256,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                        className: "text-left",
+                                                        children: "Time"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                        lineNumber: 257,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                        className: "text-left",
+                                                        children: "Doctor"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                        lineNumber: 258,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                        className: "text-left",
+                                                        children: "Description"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                        lineNumber: 259,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                        className: "text-right",
+                                                        children: "Amount"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                        lineNumber: 260,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                        className: "text-right",
+                                                        children: "Status"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                        lineNumber: 261,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                lineNumber: 255,
+                                                columnNumber: 17
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                            lineNumber: 254,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
+                                            children: payments.map((payment, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            children: payment.date
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                            lineNumber: 267,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            children: payment.time
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                            lineNumber: 268,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            children: payment.doctor
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                            lineNumber: 269,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            children: payment.description
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                            lineNumber: 270,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            className: "text-right",
+                                                            children: [
+                                                                "$",
+                                                                payment.amount.toFixed(2)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                            lineNumber: 271,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            className: "text-right",
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                                                                variant: payment.status === "Paid" ? "success" : "warning",
+                                                                children: payment.status
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                                lineNumber: 273,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                            lineNumber: 272,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, index, true, {
+                                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                                    lineNumber: 266,
+                                                    columnNumber: 19
+                                                }, this))
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                            lineNumber: 264,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                    lineNumber: 253,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                lineNumber: 252,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mt-4 flex justify-end",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                    variant: "outline",
+                                    size: "sm",
+                                    onClick: toggleLastPaymentStatus,
+                                    disabled: payments.length === 0,
+                                    children: "Toggle Last Payment Status"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                    lineNumber: 287,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                                lineNumber: 286,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                        lineNumber: 130,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+                lineNumber: 92,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/receptionist/patients/patientDetails.tsx",
+        lineNumber: 88,
+        columnNumber: 5
+    }, this);
+}
+_s(PatientDetails, "oyMfoindxzZngD6Vk+SgNXVz24w=");
+_c = PatientDetails;
+var _c;
+__turbopack_refresh__.register(_c, "PatientDetails");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
 "[project]/app/receptionist/patients/page.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -985,11 +1817,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$separato
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/table.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/textarea.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/dialog.tsx [app-client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module './patientDetails'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$receptionist$2f$patients$2f$patientDetails$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/app/receptionist/patients/patientDetails.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/search.js [app-client] (ecmascript) <export default as Search>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/plus.js [app-client] (ecmascript) <export default as Plus>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/square-pen.js [app-client] (ecmascript) <export default as Edit>");
@@ -2459,7 +3287,7 @@ const ReceptionistPatient = ()=>{
                             lineNumber: 669,
                             columnNumber: 11
                         }, this),
-                        selectedPatient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PatientDetails, {
+                        selectedPatient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$receptionist$2f$patients$2f$patientDetails$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             patient: selectedPatient
                         }, void 0, false, {
                             fileName: "[project]/app/receptionist/patients/page.tsx",

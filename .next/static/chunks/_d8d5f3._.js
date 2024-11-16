@@ -387,59 +387,59 @@ var _s = __turbopack_refresh__.signature();
 ;
 ;
 ;
-// Mock data for demonstration (individual wait times)
+// Mock data for demonstration
 const mockQueueData = [
     {
         id: 1,
         name: "John Doe",
-        individualWaitTime: 15
+        individualWaitTime: 10
     },
     {
         id: 2,
         name: "Jane Smith",
-        individualWaitTime: 10
+        individualWaitTime: 15
     },
     {
         id: 3,
         name: "Alice Johnson",
-        individualWaitTime: 20
+        individualWaitTime: 12
     },
     {
         id: 4,
         name: "Bob Brown",
-        individualWaitTime: 15
+        individualWaitTime: 8
+    },
+    {
+        id: 5,
+        name: "Charlie Davis",
+        individualWaitTime: 20
     }
 ];
 const QueueStatus = ()=>{
     _s();
     const [queueData, setQueueData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(mockQueueData);
-    const [userPosition, setUserPosition] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(3); // Assuming the user is in position 3
+    const [userPosition, setUserPosition] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(4); // Assuming the user is in position 4
     const { toast } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$use$2d$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useToast"])();
-    // Calculate cumulative wait times
-    const queueWithCumulativeWaitTimes = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
-        let cumulativeTime = 0;
-        return queueData.map((item, index)=>{
-            cumulativeTime += item.individualWaitTime;
+    // Calculate cumulative wait times for patients before the user
+    const queueWithEstimatedWaitTimes = queueData.slice(0, userPosition).map((item, index)=>{
+        if (index === 0) {
             return {
                 ...item,
-                estimatedWaitTime: cumulativeTime
+                estimatedWaitTime: 0
             };
-        });
-    }, [
-        queueData
-    ]);
-    // Get only the patients before the user
-    const patientsBeforeUser = queueWithCumulativeWaitTimes.slice(0, userPosition - 1);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        // Simulating real-time updates
-        const interval = setInterval(()=>{
-            setQueueData((prevData)=>prevData.map((item, index)=>({
-                        ...item,
-                        individualWaitTime: index === 0 ? Math.max(0, item.individualWaitTime - 1) : item.individualWaitTime
-                    })));
-        }, 60000); // Update every minute
-        return ()=>clearInterval(interval);
-    }, []);
+        } else if (index === 1) {
+            return {
+                ...item,
+                estimatedWaitTime: queueData[0].individualWaitTime
+            };
+        } else {
+            const previousWaitTimes = queueData.slice(0, index).reduce((sum, patient)=>sum + patient.individualWaitTime, 0);
+            return {
+                ...item,
+                estimatedWaitTime: previousWaitTimes
+            };
+        }
+    });
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         // Check if it's the user's turn
         if (userPosition === 1) {
@@ -453,8 +453,8 @@ const QueueStatus = ()=>{
         userPosition,
         toast
     ]);
-    const userEstimatedWaitTime = queueWithCumulativeWaitTimes[userPosition - 1]?.estimatedWaitTime || 0;
-    const totalWaitTimeBeforeUser = patientsBeforeUser.reduce((sum, patient)=>sum + patient.individualWaitTime, 0);
+    const userEstimatedWaitTime = queueWithEstimatedWaitTimes[userPosition - 1]?.estimatedWaitTime || 0;
+    const totalWaitTimeBeforeUser = queueWithEstimatedWaitTimes.slice(0, userPosition - 1).reduce((sum, patient)=>sum + patient.individualWaitTime, 0);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "w-full max-w-6xl mx-auto",
         children: [
@@ -463,7 +463,7 @@ const QueueStatus = ()=>{
                 children: "Queue Status"
             }, void 0, false, {
                 fileName: "[project]/app/patient/queue/page.tsx",
-                lineNumber: 82,
+                lineNumber: 66,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -477,27 +477,27 @@ const QueueStatus = ()=>{
                                         className: "mr-2 h-6 w-6 text-blue-500"
                                     }, void 0, false, {
                                         fileName: "[project]/app/patient/queue/page.tsx",
-                                        lineNumber: 88,
+                                        lineNumber: 72,
                                         columnNumber: 13
                                     }, this),
                                     "Queue Status"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/patient/queue/page.tsx",
-                                lineNumber: 87,
+                                lineNumber: 71,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
                                 children: "Real-time view of the waiting queue"
                             }, void 0, false, {
                                 fileName: "[project]/app/patient/queue/page.tsx",
-                                lineNumber: 91,
+                                lineNumber: 75,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/patient/queue/page.tsx",
-                        lineNumber: 86,
+                        lineNumber: 70,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -518,14 +518,14 @@ const QueueStatus = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/patient/queue/page.tsx",
-                                                lineNumber: 96,
+                                                lineNumber: 80,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
                                                 className: "mr-2 h-4 w-4 text-gray-500"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/patient/queue/page.tsx",
-                                                lineNumber: 99,
+                                                lineNumber: 83,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -536,13 +536,13 @@ const QueueStatus = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/patient/queue/page.tsx",
-                                                lineNumber: 100,
+                                                lineNumber: 84,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/patient/queue/page.tsx",
-                                        lineNumber: 95,
+                                        lineNumber: 79,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -560,20 +560,20 @@ const QueueStatus = ()=>{
                                                 className: "mr-2 h-4 w-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/patient/queue/page.tsx",
-                                                lineNumber: 113,
+                                                lineNumber: 97,
                                                 columnNumber: 15
                                             }, this),
                                             "Notify Me"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/patient/queue/page.tsx",
-                                        lineNumber: 102,
+                                        lineNumber: 86,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/patient/queue/page.tsx",
-                                lineNumber: 94,
+                                lineNumber: 78,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$progress$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Progress"], {
@@ -581,95 +581,60 @@ const QueueStatus = ()=>{
                                 className: "w-full"
                             }, void 0, false, {
                                 fileName: "[project]/app/patient/queue/page.tsx",
-                                lineNumber: 117,
+                                lineNumber: 101,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "space-y-4",
-                                children: [
-                                    patientsBeforeUser.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex justify-between items-center p-3 rounded-lg bg-gray-100 dark:bg-gray-800",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "font-medium",
-                                                    children: [
-                                                        "Patient ",
-                                                        item.id
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/app/patient/queue/page.tsx",
-                                                    lineNumber: 127,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    children: [
-                                                        item.estimatedWaitTime,
-                                                        " minutes"
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/app/patient/queue/page.tsx",
-                                                    lineNumber: 128,
-                                                    columnNumber: 17
-                                                }, this)
-                                            ]
-                                        }, item.id, true, {
-                                            fileName: "[project]/app/patient/queue/page.tsx",
-                                            lineNumber: 123,
-                                            columnNumber: 15
-                                        }, this)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex justify-between items-center p-3 rounded-lg bg-blue-100 dark:bg-blue-900",
+                                children: queueWithEstimatedWaitTimes.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: `flex justify-between items-center p-3 rounded-lg ${index === userPosition - 1 ? "bg-blue-100 dark:bg-blue-900" : index === 0 ? "bg-green-100 dark:bg-green-800" : "bg-gray-100 dark:bg-gray-800"}`,
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "font-medium",
-                                                children: "You"
+                                                children: index === userPosition - 1 ? "You" : `Patient ${item.id}`
                                             }, void 0, false, {
                                                 fileName: "[project]/app/patient/queue/page.tsx",
-                                                lineNumber: 132,
-                                                columnNumber: 15
+                                                lineNumber: 117,
+                                                columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                children: [
-                                                    userEstimatedWaitTime,
-                                                    " minutes"
-                                                ]
-                                            }, void 0, true, {
+                                                children: index === 0 ? "0 min (In Progress)" : `${item.estimatedWaitTime} min`
+                                            }, void 0, false, {
                                                 fileName: "[project]/app/patient/queue/page.tsx",
-                                                lineNumber: 133,
-                                                columnNumber: 15
+                                                lineNumber: 120,
+                                                columnNumber: 17
                                             }, this)
                                         ]
-                                    }, void 0, true, {
+                                    }, item.id, true, {
                                         fileName: "[project]/app/patient/queue/page.tsx",
-                                        lineNumber: 131,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
+                                        lineNumber: 107,
+                                        columnNumber: 15
+                                    }, this))
+                            }, void 0, false, {
                                 fileName: "[project]/app/patient/queue/page.tsx",
-                                lineNumber: 121,
+                                lineNumber: 105,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/patient/queue/page.tsx",
-                        lineNumber: 93,
+                        lineNumber: 77,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/patient/queue/page.tsx",
-                lineNumber: 85,
+                lineNumber: 69,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/patient/queue/page.tsx",
-        lineNumber: 81,
+        lineNumber: 65,
         columnNumber: 5
     }, this);
 };
-_s(QueueStatus, "48+ZKSSyX1+smAozGOLVhhQFLfw=", false, function() {
+_s(QueueStatus, "R3juj0quo2mkyfBiBDS+GILwy/0=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$use$2d$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useToast"]
     ];

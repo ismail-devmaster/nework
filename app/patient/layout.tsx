@@ -34,6 +34,7 @@ const PatientDashboardComponent = ({
 }: {
   children: React.ReactNode;
 }) => {
+  // export default function PatientDashboardComponent({ children }: { children: React.ReactNode }) {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
