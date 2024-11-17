@@ -1,8 +1,6 @@
 {
-  "/patient/page": "app/patient/page.js",
-  "/receptionist/page": "app/receptionist/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/receptionist/newAppointments/page": "app/receptionist/newAppointments/page.js",
   "/receptionist/patients/page": "app/receptionist/patients/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/patient/appointments/page": "app/patient/appointments/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/_not-found/page": "app/_not-found/page.js"
 }

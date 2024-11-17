@@ -191,8 +191,6 @@ export default function AppointmentsPageComponent() {
 
     // Switch to the Waiting tab
     setActiveTab("waiting");
-<<<<<<< HEAD
-=======
   };
 
   const handleCancelBooking = () => {
@@ -207,7 +205,6 @@ export default function AppointmentsPageComponent() {
       title: "Booking Cancelled",
       description: "Your appointment booking has been cancelled.",
     });
->>>>>>> 4989318
   };
 
   const handleReschedule = (appointment) => {
@@ -278,8 +275,6 @@ export default function AppointmentsPageComponent() {
 
   const today = new Date();
 
-<<<<<<< HEAD
-=======
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const openDialog = () => setIsDialogOpen(true);
   const closeDialog = () => setIsDialogOpen(false);
@@ -297,8 +292,8 @@ export default function AppointmentsPageComponent() {
     }
   };
 
->>>>>>> 4989318
   return (
+    // Your component's JSX goes here
     <div className="w-full max-w-6xl mx-auto">
       <main>
         <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center dark:text-white">
@@ -352,11 +347,8 @@ export default function AppointmentsPageComponent() {
                       <Calendar
                         mode="single"
                         selected={date}
-<<<<<<< HEAD
                         onSelect={setDate}
-=======
                         onSelect={handleSelectDate}
->>>>>>> 4989318
                         fromDate={new Date()}
                         className="rounded-md border-gray-200 dark:border-gray-700"
                       />
